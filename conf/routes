@@ -4,9 +4,21 @@
 
 # Home page
 GET     /                           controllers.Usuarios.welcome()
+
+# Login, logout, Navegacion en general 
 POST	/main						controllers.Usuarios.login()
 GET		/createuser					controllers.Usuarios.showCreateUser()
 POST	/nuevousuario				controllers.Usuarios.crearUsuario()
+GET		/main						controllers.Usuarios.dashboard()
+GET		/logout						controllers.Usuarios.logout()
+
+# Cuestionarios
+GET		/gcs_q						controllers.Procesos.cuestionarioGCS()
+GET		/gns_q						controllers.Procesos.cuestionarioGNS()
+GET		/gin_q						controllers.Procesos.cuestionarioGIN()
+
+# Appa
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

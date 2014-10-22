@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Heroshi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
 
     <!-- Custom Fonts -->
     <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Validator -->
+    <link href="/assets/bvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,11 +41,26 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
+
+    <!-- Flashes -->
+    @if(flash.contains("success")) {
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <b>@flash.get("success")</b>
+        </div>
+    }
+    @if(flash.contains("error")) {
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <b>@flash.get("error")</b>
+        </div>
+    }
+
                     <div class="panel-heading">
                         <h3 class="panel-title">Bienvenido</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="@routes.Usuarios.login()">
+                        <form role="form" method="post" action="@routes.Usuarios.login()" class="login">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Usuario" name="username" type="username" autofocus>
@@ -68,11 +86,7 @@
         </div>
     </div>
 
-    <div id="footer">
-        <div class="container">
-            <p class="muted credit">Heroshi by <a href="http://martinbean.co.uk">Elias Su</a> and <a href="http://ryanfait.com/sticky-footer/">Kenny Tafur</a>.</p>
-        </div>
-    </div>
+@footer()
 
     <!-- jQuery Version 1.11.0 -->
     <script src="/assets/js/jquery-1.11.0.js"></script>
@@ -80,11 +94,44 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/assets/js/bootstrap.min.js"></script>
 
+    <!-- Bootstrap Validator -->
+    <script src="/assets/bvalidator/js/bootstrapValidator.min.js"></script>
+    <script src="/assets/bvalidator/js/language/es_ES.js"></script>
+
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
+
+    <!-- Bootstrap Validator js -->
+    <script>
+        $(document).ready(function() {
+    $('.login').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo nombre de usuario y no puede dejarlo vacío'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo contraseña y no puede dejarlo vacío'
+                    }
+                }
+            }
+        }
+    });
+});
+    </script>
 
 </body>
 

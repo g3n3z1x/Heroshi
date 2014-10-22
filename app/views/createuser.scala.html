@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Heroshi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
 
     <!-- Custom Fonts -->
     <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Validator -->
+    <link href="/assets/bvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,53 +48,66 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
+
+    <!-- Flashes -->
+    @if(flash.contains("success")) {
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <b>@flash.get("success")</b>
+        </div>
+    }
+    @if(flash.contains("error")) {
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <b>@flash.get("error")</b>
+        </div>
+    }
+
                         <div class="panel-heading">
                             Complete el siguiente formulario
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post" action="@routes.Usuarios.crearUsuario()">
+                                    <form id="nuevo" role="form" method="post" action="@routes.Usuarios.crearUsuario()">
                                         <div class="form-group">
-                                            <label>Usuario</label>
-                                            <input class="form-control" 
-                                            placeholder="Nombre de usuario único" name="username">
+                                            <label class="control-label">Usuario</label>
+                                            <input class="form-control"placeholder="Nombre de usuario único" name="username" type="username">
                                             <p class="help-block">Este será el usuario que utilizará para loguearse.</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>Contraseña</label>
-                                            <input type="password" class="form-control secret" 
-                                            placeholder="Contraseña" name="password">
-                                            <p class="help-block">Mínimo de 6 caracteres.</p>
+                                            <label class="control-label">Contraseña</label>
+                                            <input type="password" class="form-control secret"placeholder="Contraseña" name="password">
+                                            <p class="help-block">Mínimo de 8 caracteres.</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>Nombre completo</label>
+                                            <label class="control-label">Nombre completo</label>
                                             <input class="form-control" placeholder="Nombre" name="nombre"><input class="form-control" 
                                             placeholder="Apellido" name="apellido">
                                         </div>
                                         <div class="form-group">
-                                            <label>DNI</label>
+                                            <label class="control-label">DNI</label>
                                             <input class="form-control" 
                                             placeholder="Número de DNI" name="dni">
                                         </div>
                                         <div class="form-group">
-                                            <label>Empresa</label>
+                                            <label class="control-label">Empresa</label>
                                             <input class="form-control" 
                                             placeholder="Nombre de la empresa para la que trabaja" name="empresa">
                                         </div>
                                         <div class="form-group">
-                                            <label>RUC</label>
+                                            <label class="control-label">RUC</label>
                                             <input class="form-control" 
                                             placeholder="Número RUC de la empresa" name="ruc">
                                         </div>
                                         <div class="form-group">
-                                            <label>Tipo de Empresa</label>
+                                            <label class="control-label">Tipo de Empresa</label>
                                             <input class="form-control" 
                                             placeholder="Tipo de empresa" name="tipo_empresa">
                                             <p class="help-block">Rubro al cual la empresa esté asociada.</p>
                                         </div>
                                         <div class="form-group">
-                                            <label>E-mail</label>
+                                            <label class="control-label">E-mail</label>
                                             <input class="form-control" 
                                             placeholder="@@" name="email">
                                         </div>
@@ -115,11 +131,7 @@
         </div>
         <!-- /#page-wrapper -->
 
-    <div id="footer">
-        <div class="container">
-            <p class="muted credit">Heroshi by <a href="http://martinbean.co.uk">Elias Su</a> and <a href="http://ryanfait.com/sticky-footer/">Kenny Tafur</a>.</p>
-        </div>
-    </div>
+@footer()
 
     <!-- jQuery Version 1.11.0 -->
     <script src="/assets/js/jquery-1.11.0.js"></script>
@@ -127,11 +139,112 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/assets/js/bootstrap.min.js"></script>
 
+    <!-- Bootstrap Validator -->
+    <script src="/assets/bvalidator/js/bootstrapValidator.min.js"></script>
+
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
+
+    <!-- Bootstrap Validator js -->
+    <script>
+        $(document).ready(function() {
+    $('#nuevo').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo nombre de usuario y no puede dejarlo vacío'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'El nombre de usuario debe poseer una extensión de mínimo 6 y máximo 30 caracteres'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: 'El nombre de usuario solo puede contener caracteres alfabéticos, numéricos y el guión bajo ("_")'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo contraseña y no puede dejarlo vacío'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'La contraseña no puede ser igual a su nombre de usuario'
+                    },
+                    stringLength: {
+                        min: 8,
+                        message: 'La contraseña debe poseer una extensión de mínimo 8 caracteres'
+                    }
+                }
+            },
+            nombre: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo nombre y no puede dejarlo vacío'
+                    }
+                }
+            },
+            apellido: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo apellido y no puede dejarlo vacío'
+                    }
+                }
+            },
+            dni: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo DNI y no puede dejarlo vacío'
+                    }
+                }
+            },
+            empresa: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo empresa y no puede dejarlo vacío'
+                    }
+                }
+            },
+            ruc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo RUC y no puede dejarlo vacío'
+                    }
+                }
+            },
+            tipo_empresa: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el tipo de empresa y no puede dejarlo vacío'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Se requiere el campo contraseña y no puede dejarlo vacío'
+                    },
+                    emailAddress: {
+                        message: 'No es una dirección válida de correo'
+                    }
+                }
+            }
+        }
+        });
+    });
+    </script>
 
 </body>
 

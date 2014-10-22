@@ -34,6 +34,12 @@ public class Usuarios extends Controller {
 				// Cargar sesión
 				setSession(user);
 				return ok(index.render());
+			}else if(user == null){
+				flash("error","Usuario no existe.");
+				return redirect( "/" );
+			}else if(!(Crypto.sign(password).equals(user.getPassword()))){
+				flash("error","Contraseña incorrecta.");
+				return redirect( "/" );
 			}
 		}
 		catch(Exception ex){
@@ -44,6 +50,7 @@ public class Usuarios extends Controller {
 		return redirect( "/" );
     }
 
+    //Establece sesion de usuario
     public static void setSession(Usuario user)
 	{
 		String uuid = java.util.UUID.randomUUID().toString();
@@ -93,14 +100,30 @@ public class Usuarios extends Controller {
 	    	email,
 	    	"activo");
 
-	    user.save();
-
-		return redirect( "/" );
+	    //Restriccion de llave duplicada (usuario es unico)
+	    if(Usuario.getUserByUsername(username) == null){
+	    	user.save();
+	    }else if(username.equals(Usuario.getUserByUsername(username).getUsername()))
+	    {
+	    	flash("error","El nombre de usuario ingresado no es único. Elija otro.");
+    		return redirect(request().getHeader("referer"));
+	    }else{
+	    	user.save();
+		}
+	    flash("success","Su cuenta ha sido creada con éxito.");
+    	return redirect( "/" );
 	}
 
     //Dashboard
     public static Result dashboard() {
-    	return ok(welcome.render());
+    	return ok(index.render());
     }
+
+    public static Result logout() {
+	    session().clear();
+	    flash("success", "Su sesión ha sido cerrada con éxito.");
+	    return redirect(routes.Usuarios.welcome());
+	}
+
 
 }
