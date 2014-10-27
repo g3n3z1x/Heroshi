@@ -13,6 +13,9 @@ public class Usuario extends Model {
   @Id
   @GeneratedValue
   public Long id;
+
+  @OneToMany(cascade = {CascadeType.ALL})
+  public List <Evaluacion> evaluaciones;
   
   @Column(unique=true)
   @Constraints.Required

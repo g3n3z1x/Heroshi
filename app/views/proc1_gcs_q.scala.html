@@ -17,17 +17,14 @@
     <!-- MetisMenu CSS -->
     <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="/assets/css/plugins/timeline.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="/assets/css/plugins/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Validator -->
+    <link href="/assets/bvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,111 +40,6 @@
     <div id="wrapper">
 
        @navigation()
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a class="active" href="/main"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
 
         <div id="page-wrapper">
             <div class="row">
@@ -166,29 +58,383 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post" action="#">
+                                    <form id="gcs" role="form" method="post" action="/gcs_e">
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM01. Nivel de Documentación</b>
+                                    </div></div>
+                                        <!-- Pregunta 1 -->
                                         <div class="form-group">
                                             <label>Pregunta 1. ¿Qué tipo de servicios brinda tu organización?</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Software
+                                                    <input type="checkbox" value="1" name="tipo_servicio">Software de Base y Aplicaciones
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Consultoría
+                                                    <input type="checkbox" value="1" name="tipo_servicio">Consultoría y Servicios de TI (Tecnologías de información)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Otros
+                                                    <input type="checkbox" value="0" name="tipo_servicio">Otros (no relacionados a software/tecnologías de información)
                                                 </label>
                                             </div>
-                                            <p class="help-block"></p>
                                         </div>
-                                                                                
-                                        <button type="submit" class="btn btn-primary">Siguiente Pregunta <i class="glyphicon glyphicon-chevron-right"></i></button>
-                                        <button type="reset" class="btn btn-default btn-danger">Terminar Evaluación <i class="glyphicon glyphicon-remove"></i></button>
+                                        <br>
+                                        <!-- Pregunta 2 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 2. ¿Cuántos servicios (tanto internos como externos) brindas en tu organización?</label>
+                                            <div class="form-group">
+                                                <label class="control-label pull-left">Número de Servicios:</label>
+                                                <div class="col-md-3 inputContainer">
+                                                    <input class="form-control inline" name="numero_servicios" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <!-- Pregunta 3 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 3. ¿Cómo pueden tus clientes conocer sobre tus servicios?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_servicio">Página Web
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_servicio">Documentación Física
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_servicio">Documentación Digital
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="0" name="doc_servicio">Via Telefónica/Conversación presencial (vía oral)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <!-- Pregunta 4 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 4. ¿De los servicios antes mencionados, cuántos están descritos en documentos físicos o digitales?</label>
+                                            <div class="form-group">
+                                                <label class="control-label pull-left">Número de Servicios:</label>
+                                                <div class="col-md-3 inputContainer">
+                                                    <input class="form-control inline" name="numero_descritos" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><br>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM02. Repositorio de Información</b>
+                                    </div></div>
+                                        <!-- Pregunta 5 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 5. ¿Cómo almacenas ésta documentación?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="0" name="tipo_almacen">Ningún lugar
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="25" name="tipo_almacen">Carpeta Local
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="25" name="tipo_almacen">Bitácora/Folder (Físico)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="50" name="tipo_almacen">Carpeta Compartida (PC)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="75" name="tipo_almacen">Herramienta de Repositorio Compartida
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="100" name="tipo_almacen">En la Nube/Cloud (compartida)
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM03. Accesibilidad</b>
+                                    </div></div>
+                                        <!-- Pregunta 6 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 6. ¿Cómo pueden tus clientes revisar esta información?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="0" name="clientes_acc">No es accesible para ellos
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="clientes_acc">Reuniones presenciales
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="clientes_acc">Envío por correo electrónico
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="clientes_acc">Documentación digital disponible en página web
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Pregunta 7 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 7. ¿Cómo puede el personal técnico de tu empresa (desarrolladores, personal de soporte técnico, etc.) revisar esta información si tiene alguna duda?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="0" name="tec_acc">No es accesible para ellos
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="tec_acc">Lo solicitan al jefe/responsable
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="tec_acc">Bitácora con documentación física
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="tec_acc">Documentación digital en el repositorio
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Pregunta 8 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 8. ¿Cómo puede el personal administrativo de tu empresa (secretaria, gerente, supervisor, etc.) revisar esta información si tiene alguna duda?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="0" name="adm_acc">No es accesible para ellos
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="adm_acc">Lo solicitan al personal técnico
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="adm_acc">Bitácora con documentación física
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="adm_acc">Documentación digital en el repositorio
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM04. Detalle de la documentación (mejor documentado)</b>
+                                    </div></div>
+                                        <!-- Pregunta 9 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 9. En base al servicio con la documentación más completa (a tu criterio), ¿cuáles de los siguientes campos contempla?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Identificador único
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Breve resumen
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Características y/o funcionalidades
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Responsables (Administrativo y/o Técnico/Soporte)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Horarios de disponibilidad (Ejm. 24x7) y atención (Ejm. 9:00am - 5:00pm)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Costo/Precio básico
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Dependencias (relación con otros productos)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Referencias (manuales, actas, etc)
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM05. Detalle de la documentación (todos)</b>
+                                    </div></div>
+                                        <!-- Pregunta 10 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 10. ¿Cuantos de los servicios que cuentan con documentación física o digital cumplen con todos los campos?</label>
+                                            <div class="form-group">
+                                                <label class="control-label pull-left">Número de Servicios:</label>
+                                                <div class="col-md-3 inputContainer inline">
+                                                    <input class="form-control" name="numero_cumplen" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><br>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM06. Periodicidad de Revisión</b>
+                                    </div></div>
+                                        <!-- Pregunta 11 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 11. ¿Cada cuanto se realiza una revisión general de la documentación de los servicios?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="periodicidad">Nunca
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="25" name="periodicidad">Rara vez (1 vez al año)
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="periodicidad">Eventualmente (cada 7 a 12 meses)
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="75" name="periodicidad">Ocasionalmente (cada 3 a 6 meses)
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="periodicidad">Frecuentemente (cada 1 a 2 meses)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Pregunta 12 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 12. ¿Cuántos servicios son revisados durante esta actividad?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="num_revisados">Ninguno
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="33" name="num_revisados">Algunos (1/3 del total)
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="66" name="num_revisados">La mayoría (2/3 del total)
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="num_revisados">Todos
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SCM07. Responsable del Catálogo de Servicios</b>
+                                    </div></div>
+                                        <!-- Pregunta 13 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 13. ¿Quién administra la documentación de los servicios?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="adm_doc">Nadie
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="adm_doc">Cada responsable técnico elabora su propia documentación
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="adm_doc">El jefe/gerente recopila toda la documentación
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Pregunta 14 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 14. ¿El responsable convoca a reuniones para la revisión de la documentación?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="reuniones">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="reuniones">A veces
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="reuniones">No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Pregunta 15 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 15. ¿El responsable mantiene actualizada esta información en algún tipo de repositorio (físico o digital)?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="actualizado">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="actualizado">A veces
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="actualizado">No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="button" class="btn btn-primary">Siguiente Pregunta <i class="glyphicon glyphicon-chevron-right"></i></button>
+                                        <button type="submit" class="btn btn-success">Finalizar <i class="glyphicon glyphicon-ok"></i></button>
+                                        <a class="active" href="/main"><button type="button" class="btn btn-default btn-danger">Terminar Evaluación <i class="glyphicon glyphicon-remove"></i></button></a>
                                         
                                     </form>
                                 </div>
@@ -205,9 +451,10 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
+
+    @footer()
 
     <!-- jQuery Version 1.11.0 -->
     <script src="/assets/js/jquery-1.11.0.js"></script>
@@ -215,16 +462,134 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/assets/js/bootstrap.min.js"></script>
 
+    <!-- Bootstrap Validator -->
+    <script src="/assets/bvalidator/js/bootstrapValidator.min.js"></script>
+
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="/assets/js/plugins/morris/raphael.min.js"></script>
-    <script src="/assets/js/plugins/morris/morris.min.js"></script>
-    <script src="/assets/js/plugins/morris/morris-data.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="/assets/js/sb-admin-2.js"></script>
+
+    <!-- Bootstrap Validator js -->
+    <script>
+        $(document).ready(function() {
+    $('#gcs').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            tipo_servicio: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            numero_servicios: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    }
+                }
+            },
+            doc_servicio: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            numero_descritos: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    }
+                }
+            },
+            tipo_almacen: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            clientes_acc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            tec_acc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            adm_acc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            doc_completo: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            numero_cumplen: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    }
+                }
+            },
+            periodicidad: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            num_revisados: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            adm_doc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            reuniones: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            actualizado: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            }
+        }
+        });
+    });
+    </script>
 
 
 </body>

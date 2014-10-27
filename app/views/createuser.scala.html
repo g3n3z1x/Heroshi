@@ -36,11 +36,14 @@
 </head>
 
 <body>
-
+    
     <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Nuevo Usuario</h1>
+                    <h1 class="page-header">Nuevo Usuario 
+                    <a class="navbar-brand pull-right" href="/">
+                    <button class="btn btn-success pull-right"><i class="glyphicon glyphicon-chevron-left"></i> Regresar</button></a></h1>
+                    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -112,7 +115,7 @@
                                             placeholder="@@" name="email">
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-default">Registrarse</button>
+                                        <button type="submit" class="btn btn-primary">Registrarse</button>
                                         <button type="reset" class="btn btn-default">Limpiar campos</button>
                                         
                                     </form>
@@ -207,6 +210,11 @@
                 validators: {
                     notEmpty: {
                         message: 'Se requiere el campo DNI y no puede dejarlo vacío'
+                    },
+                    stringLength: {
+                        min: 8,
+                        max: 8,
+                        message: 'No es un número de DNI válido'
                     }
                 }
             },
@@ -221,6 +229,11 @@
                 validators: {
                     notEmpty: {
                         message: 'Se requiere el campo RUC y no puede dejarlo vacío'
+                    },
+                    stringLength: {
+                        min: 11,
+                        max: 11,
+                        message: 'No es un número de RUC válido'
                     }
                 }
             },
@@ -234,7 +247,7 @@
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'Se requiere el campo contraseña y no puede dejarlo vacío'
+                        message: 'Se requiere el campo email y no puede dejarlo vacío'
                     },
                     emailAddress: {
                         message: 'No es una dirección válida de correo'
