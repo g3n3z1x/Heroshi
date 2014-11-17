@@ -105,9 +105,26 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Tipo de Empresa</label>
-                                            <input class="form-control" 
-                                            placeholder="Tipo de empresa" name="tipo_empresa">
-                                            <p class="help-block">Rubro al cual la empresa esté asociada.</p>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="PYME de TI" name="tipo_empresa">PYME en el rubro de Tecnologías de Información
+                                                </label>
+                                            </div>
+                                            <p class="help-block">Por el momento, única opción.</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tipo de servicios brindados</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="Software de Base y Aplicaciones" name="tipo_servicio">Software de Base y Aplicaciones
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="Consultoría y Servicios de TI" name="tipo_servicio">Consultoría y Servicios de TI (Tecnologías de información)
+                                                </label>
+                                            </div>
+                                            <p class="help-block">Puede elegir más de uno.</p>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">E-mail</label>
@@ -241,6 +258,13 @@
                 validators: {
                     notEmpty: {
                         message: 'Se requiere el tipo de empresa y no puede dejarlo vacío'
+                    }
+                }
+            },
+            tipo_servicio: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
                     }
                 }
             },

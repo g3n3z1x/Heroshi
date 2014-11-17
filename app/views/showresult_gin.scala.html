@@ -1,0 +1,472 @@
+@(metrica : MetricaGIN)(rptas : List[Array[String]])
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heroshi</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <!--<link href="/assets/css/plugins/morris.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Javascript Routing -->
+    <script type="text/javascript" src='@routes.Procesos.javascriptRoutes()'></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+       @navigation()
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                    <i class="glyphicon glyphicon-signal"></i>
+                    Resultados
+                    <a class="navbar-brand pull-right" href="/evaluaciones">
+                    <button class="btn btn-success pull-right"><i class="glyphicon glyphicon-chevron-left"></i> Regresar</button></a></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <p class="lead">
+            <i class="glyphicon glyphicon-eye-open"></i> La siguiente gráfica te presenta tu nivel CMMI alcanzado para cada métrica. Para considerarla adecuada segun ITIL, el nivel óptimo debería ser de 3.</p>
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="glyphicon glyphicon-info-sign" title="Información"></i>
+                            <b>Evaluación del proceso de Gestión de Incidentes - Evaluación ID <a>#@metrica.getEvaluacion().getId()</a></b>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-bar-chart-o fa-fw"></i>
+                                            Nivel CMMI por Indicador
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div id="cmmi"></div>
+                                        </div>
+                                        <!-- /.panel-body -->
+
+                                        <!-- tabla metricas -->
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-bar-chart-o fa-fw"></i>
+                                                Puntaje por Indicador
+                                            </div>
+                                            <!-- /.panel-heading -->
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Código</th>
+                                                                <th>Métrica</th>
+                                                                <th>Puntaje (%)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>IM01</td>
+                                                                <td><a href="#d1">Procedimientos</a></td>
+                                                                <td>@metrica.getProcedimientos()</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IM02</td>
+                                                                <td><a href="#d2">Herramienta de Gestión de Incidentes</a></td>
+                                                                <td>@metrica.getHerramienta_gin()</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IM03</td>
+                                                                <td><a href="#d4">Modelo de Clasificación / Priorización</a></td>
+                                                                <td>@metrica.getClasificacion()</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IM04</td>
+                                                                <td><a href="#d5">Detalle de Registro de Incidente</a></td>
+                                                                <td>@metrica.getDetalle_registro()</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IM05</td>
+                                                                <td><a href="#d6">Reportes</a></td>
+                                                                <td>@metrica.getReportes()</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IM06</td>
+                                                                <td><a href="#d7">Periodicidad de generación t revisión de reportes</a></td>
+                                                                <td>@metrica.getPeriodicidad()</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>IM07</td>
+                                                                <td><a href="#d8">Responsable de Gestión de Incidentes y Mesa de Servicios</a></td>
+                                                                <td>@metrica.getResponsable()</td>
+                                                            </tr>
+                                                            
+                                                            @if(metrica.getTotal() < 25){
+                                                                <tr class="danger">
+                                                            }
+                                                            @if(metrica.getTotal() >= 75){
+                                                                <tr class="success">
+                                                            }
+                                                            @if(metrica.getTotal() >= 25 &&
+                                                                metrica.getTotal() < 75){
+                                                                <tr class="warning">
+                                                            }
+
+                                                                <td></td>
+                                                                <td><b>Total (promedio)</td>
+                                                                <td><b>@metrica.getTotal()</b></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.table-responsive -->
+                                            </div>
+                                            <!-- /.panel-body -->
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- /.panel -->
+
+                                    <p class="lead">
+                                    <i class="glyphicon glyphicon-eye-open"></i> A continuación te presentamos las recomendaciones para cada métrica, de acuerdo a tus respuestas. Te recomendamos tomes acción sobre las que consideres más importantes.</p>
+                                    
+                                    <!-- Titulo sección -->
+                                    <a name="d1"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapseOne" 
+                                        href="#collapseOne">
+                                        <b>IM01. Procedimientos
+                                        </b></a>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        <p><b>Contexto.</b></p>
+                                        <p>El objetivo principal del Catálogo de Servicios es compendiar toda la información referente a los servicios que los clientes deben conocer para asegurar un buen entendimiento entre éstos y la organización TI.</p>
+                                        <p>La elaboración de este Catálogo de Servicios puede resultar una tarea compleja, pues es necesario alinear aspectos técnicos con políticas de negocio. Sin embargo, es un documento imprescindible puesto que:</p>
+                                        <ul>
+                                        <li>Sirve de guía a los clientes a la hora de seleccionar un servicio que se adapte a sus necesidades.</li>
+                                        <li>Delimita las funciones y compromisos de la organización TI.
+                                        Puede ser utilizado como herramienta de venta.</li>
+                                        <li>Evita malentendidos entre los diferentes actores implicados en la prestación de servicios.</li>
+                                        </ul>
+                                        <p><b>Recomendaciones.</b></p>
+                                        <p>Actualmente cuentas con el @metrica.getProcedimientos()% de servicios respaldados por un documento de acuerdo de nivel de servicio. Puedes completar o mejorar estos revisando los <a href="/procesos_itil#4">formatos o herramientas</a> disponibles en nuestra Libreria ITIL.</p>
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d2"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapseTwo" 
+                                        href="#collapseTwo" class="collapsed">
+                                        <b>IM02. Herramientas de Gestión de Incidentes</b></a>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+
+                                @if(metrica.getHerramienta_gin() == 0){
+                                        <p>0%: Cuidado! Es importante que cuentes con un repositorio de informacion. En este, podras almacenar informacion detallada sobre tus servicios para ser consultada en cualquier momento. Te recomendamos empezar colocando esta informacion en una carpeta de archivos (digital) o en una bitacora / folder (fisico).</p>
+                                }
+                                @if(metrica.getHerramienta_gin() == 25){
+                                        <p>25%: Bravo! Ya cuentas con un repositorio de informacion. Sin embargo, puede esta ser accedida por los demas miembros de tu organizacion? Es importante que los miembros de tu equipo tambien tengan acceso a esta informacion, de manera que participen activamente en la documentacion de los servicios que brindan. Te recomendamos colocar esta informacion en una carpeta compartida.</p>
+                                        <p><a href="http://support.microsoft.com/kb/301281/es">Crear carpeta compartida en red.</a><p>
+                                        <p><a href="http://es.Iideshare.net/bibliopos/drive-compartir-carpetas-y-documentos-de-forma-pblica-y-privada
+                                        https://support.google.com/drive/answer/2494822?hl=es">Crear una carpeta compartida en Google Drive (con una cuenta de correo electronico GMAIL)</a><p>
+                                }
+                                @if(metrica.getHerramienta_gin() >= 50 &&
+                                    metrica.getHerramienta_gin() <= 75){  
+                                        <p>50% - 75%: Felicitaciones! Vemos que la documentacion ya esta disponible para todo tu personal. Sin embargo, la informacion estara segura ante un desastre? La disponibilidad de informacion es importante para asegurar que esta no se perdera ante un evento o accidente y pueda ser accedida durante el desastre. Existen diversas maneras para que la informacion siempre se encuentre disponible, entre ellas: Backup de informacion o Disponibilidad en la nube.</p>
+                                        <p>Backup de informacion: Puedes guardar toda la informacion de manera periodica en un dispositivo de almacenamiento (USB, Disco Duro externo, etc.)</p>
+                                        <p>Disponiblidad en la nube: Puedes utilizar los servicios de la nube para mantener tu informacion siempre disponible (Google Drive, etc.)</p>
+                                }
+                                @if(metrica.getHerramienta_gin() == 100){
+                                        <p>100%: Excelente! Cumples esta métrica al máximo.</p>
+                                }
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d4"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapse4" 
+                                        href="#collapse4" class="collapsed">
+                                        <b>IM03. Modelo de Clasificación / Priorización
+                                        </b></a>
+                                        </div>
+                                        <div id="collapse4" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+                                @if(metrica.getClasificacion() == 0){
+                                        <p>0%: Es necesario que tu IA con un nivel apropiado de detalle. Te invitamos a revisar nuestros formatos en la Libreria ITIL.</p>
+                                }
+                                @if(metrica.getClasificacion() > 0 &&
+                                        metrica.getClasificacion() < 100){
+                                        <p>&gt;0% y &lt;100%. Vas bien! Todavia puedes mejorar tu documentacion, revisando los formatos en nuestra Libreria ITIL<p>
+                                }else{
+                                        <p>100%: Excelente! Cumples esta métrica al máximo.</p>
+                                }       
+                                        <p>Recomendacion para cada campo:</p>
+                                        <ul>
+                                        <li><b>Representantes de partes interesadas:</b> Debe indicarse el nombre, cargo y algun identificador (DNI, RUC, etc.) de los representantes por parte de cliente y por parte de quien provee el servicio (en este caso, tu empresa).</li>
+
+                                        <li><b>Alcance del IA / Restricciones:</b> Se describe el alcance del documento (que esta incluido, que se excluye, que limitantes tiene, etc.).</li>
+
+                                        <li><b>Breve descripcion del servicio:</b> Debe escribirse en un lenguaje claro y comprensible para todos (clientes, personal tecnico, personal administrativo). Describe brevemente de que trata el servicio (Que es? Para que sirve?).</p>
+
+                                        <li><b>Horarios de disponibilidad y atencion:</b> Describe como se atenderan los incidentes o solicitudes del servicio.
+                                        (Ej: Actualizacion del Catalogo de Productos 9:00AM a 3:00PM
+                                        Soporte Tecnico 8:00AM a 6:00 PM)</li>
+
+                                        <li><b>Contactos para la resolucion y responsabilidades:</b> Se indican contactos, puestos y que responsabilidades tienen frente a un incidente o solicitud con el servicio.
+                                        (Ej: Juan Perez 999-551-789 Coordinador Soporte Tecnico Coordinar con miembros de soporte tecnico para solucionar problemas de conectividad con el servidor Z)</li>
+
+                                        <li><b>Indicadores / Tiempos de resolucion:</b> Se deben especificar indicadores relevantes al servicio (incidentes, etc.) y el tiempo de resolucion: cuanto es el tiempo maximo para resolver los incidentes segun el servicio y complejidad del indicidente (Ej: Error de instalacion 2 dias, etc.)</li>
+
+                                        <li><b>Penalizaciones / Condiciones:</b> Se debe indicar cual es el resultado de no cumplir con las condiciones anteriores o condiciones adicionales que deben tomarse en cuenta  (Ej: $30 por hora de indisponiblidad, El cliente no debe haber manipulado el programa, garantias, etc.)</li>
+
+                                        <li><b>Periodo de aplicabilidad / Periodo de revision:</b> Especificar cuanto dura el acuerdo hasta la proxima renovacion (Ej: 1 año) o cuando se debe realizar la revision del mismo (Ej: Mensualmente, etc.)</li>
+
+                                        <li><b>Referencias:</b> Se indican los nombres de documentos asociados al IA.
+                                        (Ej: Manual A001 -  Manual de Instalacion de aplicacion ABC
+                                        Servicio S002 - Instalacion de aplicacion ABC
+                                        Contrato C005 - Contrato de aplicacion ABC con cliente Z)</li>
+                                        </ul>
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d5"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapse5" 
+                                        href="#collapse5" class="collapsed">
+                                        <b>IM04. Detalle de Registro de Incidente
+                                        </b></a>
+                                        </div>
+                                        <div id="collapse5" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+                                        <p>Actualmente cuentas con el @metrica.getDetalle_registro()% de servicios documentados a un nivel de detalle apropiado. Puedes completar o mejorar estos revisando los <a href="/procesos_itil#4">formatos o herramientas</a> disponibles en nuestra Libreria ITIL.</p>
+                                        <p>Keepo.</p>
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d6"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapse6" 
+                                        href="#collapse6" class="collapsed">
+                                        <b>IM05. Periodicidad
+                                        </b></a>
+                                        </div>
+                                        <div id="collapse6" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+                                @if(rptas(6)(0).toInt <= 50){
+                                        <p>Periodicidad (@rptas(10)(0)%) &lt;50%: Es importante que revises los IAs de tus servicios periodicamente independientemente de la fecha de termino. La revision periodica con el cliente te permite: identificar si hubo cambios en la forma de brindar el servicio (nuevos responsables, nueva funcionalidad, etc.), identificar si hay oportunidades de mejora en la forma de brindar servicio (actualizar una funcionalidad, nueva funcionalidad, etc.)</p>
+                                }
+                                @if(rptas(7)(0).toInt < 66){
+                                        <p>Revisión (@rptas(11)(0)%) &lt;66%: Es importante que revises la mayoria de tus IAs de tus servicios. Una revision mas amplia te permite: identificar si las condiciones de algunos servicios se deben estandarizar o especificar segun el cliente, si existen condiciones nuevas que deben aplicarse o antiguas que deben retirarse, etc.</p>
+                                }
+                                @if(rptas(11)(0).toInt >= 66 && rptas(10)(0).toInt >= 75){
+                                        <p>Tus niveles de periodicididad (@rptas(10)(0)%) y revisión (@rptas(11)(0)%) son adecuados.</p>
+                                }
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d7"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapse7" 
+                                        href="#collapse7" class="collapsed">
+                                        <b>IM05. Reportes
+                                        </b></a>
+                                        </div>
+                                        <div id="collapse7" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+                                @if(metrica.getReportes() <= 25){
+                                        <p>0% - 25%: Es recomendable que revises los acuerdos de nivel de servicio de los que no se han cumplido. En caso no tengan IA, puedes revisar nuestra libreria ITIL para comenzar a documentarlos.</p>
+                                }
+                                @if(metrica.getReportes() > 25){
+                                        <p>&gt;25%: Vas bien. Asegurate que todos tus servicios esten cubiertos por algun IA y programa reuniones con tus clientes para mejorarlos.</p>
+                                }
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d8"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapse7" 
+                                        href="#collapse7" class="collapsed">
+                                        <b>IM06. Periodicidad de generación t revisión de reportes
+                                        </b></a>
+                                        </div>
+                                        <div id="collapse7" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+                                @if(metrica.getPeriodicidad() <= 50){
+                                        <p>0% - 50%: Es recomendable que informes del estado o avance del servicio que brindas a tus clientes. De esta manera mantienes una comunicacion constante con ellos, con el fin de identificar si la entrega del servicio esta cumpliendo las expectativas del cliente o si hay oportunidades de mejora.</p>
+                                }
+                                @if(metrica.getPeriodicidad() > 50){
+                                        <p>&gt;50%: Vas bien!, asegurate de organizar reuniones con tus clientes para levantar dudas o inquietudes, confirmar si el nivel de servicio es adecuado. Ojo! Muchas veces la comunicacion estrictamente por via telefonica o correo electronica resulta inefectiva!</p>
+                                }
+                                        </div></div>
+                                    </div>
+
+                                    <!-- Titulo sección -->
+                                    <a name="d9"></a>
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#collapse7" 
+                                        href="#collapse7" class="collapsed">
+                                        <b>IM07. Responsable de Gestión de Incidentes y Mesa de Servicios
+                                        </b></a>
+                                        </div>
+                                        <div id="collapse7" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                        
+                                        <p><b>Recomendaciones.</b></p>
+                                @if(metrica.getResponsable() <= 50){
+                                        <p>0% - 50%: Es importante que el cliente indique su opinion respecto al servicio que ha recibido. Esto permite identificar oportunidades de mejora en los acuerdos de nivel de servicio e identificar nuevas necesidades que deben ser cubiertas por los acuerdos.  Asimismo, al identificarlos, es necesario actualizarlos en el IA, de manera que se mantenga el acuerdo entre ambas partes.</p>
+                                }
+                                @if(rptas(10)(0).toInt == 2){
+                                        <p>No se identica nuevos requisitos: Es importante que al momento que el cliente indique su opinion respecto al servicio que ha recibido, se pregunte en que se puede mejorar o cambiar, con el fin de identificar oportunidades de mejora en los acuerdos de nivel de servicio e identificar nuevas necesidades que deben ser cubiertas por los acuerdos.</p>
+                                }
+                                @if(rptas(10)(0).toInt == 2){
+                                        <p>No se añaden nuevos requerimientos: Es importante actualizar los IAs en base a los requisitos del cliente. Con ello, satisfaces las nuevas necesidades y expectativas del cliente, logrando fidelizarlo. Para ello, puedes revisar el formato de Requisitos de Nivel de Servicio en nuestra libreria ITIL para documentarlos.</p>
+                                }
+                                        </div></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    @footer()
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/assets/js/sb-admin-2.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <!--<script src="/assets/js/plugins/morris/raphael.min.js"></script>
+    <script src="/assets/js/plugins/morris/morris.min.js"></script>
+    <script src="/assets/js/plugins/morris/morris-data.js"></script>-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script>
+    // Create a function that will handle AJAX requests
+    $(document).ready(function(){
+    $.ajax({
+          type: "GET",
+          dataType: 'json',
+          url: "@routes.Procesos.getEvaluacion()" // This is the URL to the API
+        })
+        .done(function( data ) {
+          console.log($("#cmmi")); 
+          // When the response to the AJAX request comes back render the chart with new data
+            Morris.Bar({
+              // ID of the element in which to draw the chart.
+              element: 'cmmi',
+              // Chart data records -- each entry in this array corresponds to a point on
+              // the chart.
+              data:  data,
+              // The name of the data record attribute that contains x-values.
+              xkey: 'year',
+              // A list of names of data record attributes that contain y-values.
+              ykeys: ['value'],
+              // Labels for the ykeys -- will be displayed when you hover over the chart.
+              labels: ['Nivel'],
+              barColors: ['#FF5050'],
+              yLabelFormat: function(y){return y != Math.round(y)?'':y;},
+              xLabelMargin: 10,
+              xLabelAngle: 0,
+              resize: true
+            });
+        })
+        .fail(function() {
+          // If there is no communication between the server, show an error
+          console.error(error);
+          alert( "Ocurrio un error" );
+        })
+    });
+    </script>
+    
+</body>
+
+</html>

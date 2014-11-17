@@ -5,6 +5,9 @@ import play.mvc.*;
 import play.data.Form;
 //import static play.data.Form.*;
 import java.util.Map;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import play.api.libs.Crypto;
 
 import models.*;
@@ -20,7 +23,7 @@ public class Usuarios extends Controller {
 
     //Logueo
     public static Result login() {
-
+    	Result view = null;
     	Map<String, String[]> formData = request().body().asFormUrlEncoded();
     	String username = formData.get("username")[0];
 		String password = formData.get("password")[0];
@@ -33,21 +36,26 @@ public class Usuarios extends Controller {
 			{
 				// Cargar sesión
 				setSession(user);
-				return ok(index.render());
+				//Cargar lista evaluaciones
+				List<Evaluacion> evaluaciones = 
+					Evaluacion.getEvaluacionAll(Long.parseLong(session("id")));
+				System.out.println("*Login");
+				view = ok(index.render(evaluaciones));
 			}else if(user == null){
 				flash("error","Usuario no existe.");
-				return redirect( "/" );
+				view = redirect( "/" );
 			}else if(!(Crypto.sign(password).equals(user.getPassword()))){
 				flash("error","Contraseña incorrecta.");
-				return redirect( "/" );
+				view = redirect( "/" );
 			}
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
 			flash("error","Usuario y/o contraseña incorrectos");
-			return redirect( "/" );
+			view = redirect( "/" );
 		}
-		return redirect( "/" );
+		
+		return view;
     }
 
     //Establece sesion de usuario
@@ -78,6 +86,14 @@ public class Usuarios extends Controller {
 		String empresa = formData.get("empresa")[0];
 		String ruc = formData.get("ruc")[0];
 		String tipo_empresa = formData.get("tipo_empresa")[0];
+		String tipo_servicio_1 = "";
+		String tipo_servicio_2 = "";
+		if(formData.get("tipo_servicio").length == 1){
+			tipo_servicio_1 = formData.get("tipo_servicio")[0];
+		}else{
+			tipo_servicio_1 = formData.get("tipo_servicio")[0];
+			tipo_servicio_2 = formData.get("tipo_servicio")[1];
+		}
 		String email = formData.get("email")[0];
 		
 		if(	username == "" 			|| 
@@ -97,6 +113,8 @@ public class Usuarios extends Controller {
 	    	empresa,
 	    	ruc,
 	    	tipo_empresa,
+	    	tipo_servicio_1,
+	    	tipo_servicio_2,
 	    	email,
 	    	"activo");
 
@@ -116,7 +134,16 @@ public class Usuarios extends Controller {
 
     //Dashboard
     public static Result dashboard() {
-    	return ok(index.render());
+    	Result view = null;
+    	if(session("id") == null){
+    		flash("error","Su sesión se cerró. Vuelva a iniciar sesión.");
+    		return redirect( "/" );
+    	}else{
+			List<Evaluacion> evaluaciones = 
+				Evaluacion.getEvaluacionAll(Long.parseLong(session("id")));
+			view = ok(index.render(evaluaciones));
+    	}
+    	return view;
     }
 
     public static Result logout() {
@@ -125,5 +152,97 @@ public class Usuarios extends Controller {
 	    return redirect(routes.Usuarios.welcome());
 	}
 
+	//Listar evaluaciones de usuario
+	public static Result listarEvaluaciones(){
+		Result view = null;
+    	if(session("id") == null){
+    		flash("error","Su sesión se cerró. Vuelva a iniciar sesión.");
+    		return redirect( "/" );
+    	}else{
+    		List<Evaluacion> evaluaciones =
+				Evaluacion.getEvaluacionAll(Long.parseLong(session("id")));
+			view = ok(evaluations.render(evaluaciones));
+    	}
+		return view;
+	}
+
+	//Listar evaluaciones de usuario
+	public static Result mostrarEvaluacion(Long evid){
+		session("evid", String.valueOf((int)(long) evid));
+		Evaluacion evaluacion = Evaluacion.getEvaluacionById(evid);
+		String respuestas = evaluacion.getRespuestas();
+
+		//Algoritmo mágico de transformación espacio-temporal
+		List<String[]> rptas = new ArrayList<String[]>();
+		int asn_count = 1;
+		System.out.println("**1");
+		for(int i=0; i < respuestas.length() ;i++){
+			if(respuestas.charAt(i) == '_'){
+				asn_count++;
+				System.out.println("**"+asn_count);
+			}
+			if((respuestas.charAt(i)) == '['){
+				String linearr[] = new String[50];
+				StringBuilder sb = new StringBuilder();
+				int c = 0;
+				int j = 1;
+				while(!((respuestas.charAt(i+j)) == ']')){
+					while(!((respuestas.charAt(i+j)) == ']' &&
+							(respuestas.charAt(i+j)) == ',')){
+						if(respuestas.charAt(i+j) != ' ' &&
+							respuestas.charAt(i+j) != ','){
+							sb.append(respuestas.charAt(i+j));
+						}
+						j++;
+						if(i+j == respuestas.length())
+							break;
+						if(((respuestas.charAt(i+j)) == ']'))
+							break;
+						if(((respuestas.charAt(i+j)) == ','))
+							break;
+					}
+					System.out.println(sb.toString());
+					linearr[c] = sb.toString().trim();
+					c++;
+					sb = new StringBuilder();
+					if(i+j >= respuestas.length())
+							break;
+				}
+				rptas.add(linearr);
+			}
+			if((respuestas.charAt(i)) == '_' && !(respuestas.charAt(i+1) == '[')){
+				String line = "";
+				StringBuilder sb = new StringBuilder();
+				int j = 1;
+				while(!((respuestas.charAt(i+j)) == '_')){
+					sb.append(respuestas.charAt(i+j));
+					j++;
+					if(i+j == respuestas.length())
+						break;
+					if(((respuestas.charAt(i+j)) == '_'))
+						break;
+				}
+				System.out.println(sb.toString());
+				line = sb.toString();
+				rptas.add(new String[]{line});	
+			}
+		}
+		//System.out.println(rptas.size()); = 15
+		
+		Result view = null;
+		if(evaluacion.getTipo().equals("Gestion de Catalogo de Servicios")){
+			MetricaGCS metrica = evaluacion.getMetricas_gcs();
+			view = ok(showresult_gcs.render(metrica, rptas));
+		}
+		else if(evaluacion.getTipo().equals("Gestion del Nivel de Servicios")){
+			MetricaGNS metrica = evaluacion.getMetricas_gns();
+			view = ok(showresult_gns.render(metrica, rptas));
+		}
+		else{
+			MetricaGIN metrica = evaluacion.getMetricas_gin();
+			view = ok(showresult_gin.render(metrica, rptas));
+		}
+		return view;
+	}
 
 }

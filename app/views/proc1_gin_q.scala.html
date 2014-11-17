@@ -1,0 +1,672 @@
+@(usuario: Usuario)
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heroshi</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Validator -->
+    <link href="/assets/bvalidator/css/bootstrapValidator.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+       @navigation()
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                    Cuestionario: Gestión de Incidentes</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p class="lead"><i class="glyphicon glyphicon-info-sign" title="Información"></i> El principal objetivo de la Gestión de Incidentes es resolver cualquier incidente que cause una interrupción en el servicio de la manera más rápida y eficaz posible.</p>
+                            <p class="lead">A continuación se realizan una serie de preguntas enfocadas a determinar en que nivel se encuentra tu proceso de Gestión de Incidentes. Responde todas las preguntas y cuando estes listo dale click a "Finalizar".</p>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <form id="gcs" role="form" method="post" action="/gin_e">
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM01. Procedimientos</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Estas preguntas están enfocadas a conocer si la empresa tiene procedimientos para la gestion de incidentes.</b></p>
+                                        <legend class="h5"></legend>
+                                        <br>
+                                    
+                                        <!-- Pregunta 1 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 1. ¿Cuentas con procedimientos de Gestión de Incidentes?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="existe_im">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="existe_im">No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <!-- Pregunta 2 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 2. Marca que procedimientos, formatos o modelos tienes.</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="formatos">Registro de incidentes
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="formatos">Atención de incidentes
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="formatos">Escalamiento de incidentes
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="formatos">Modelo o esquema de clasificación y priorización de incidentes
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="formatos">Reporte periódico de incidentes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <!-- Pregunta 3 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 3. ¿Están documentados?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="documentados">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="2" name="documentados">No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <!-- Pregunta 4 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 4. ¿Están almacenados en tu repositorio y accesibles a tu personal?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="almacenados">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="2" name="almacenados">No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        </div></div>
+                                        <br>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM02. Herramienta de Gestión de Incidentes</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Es importante determinar si la empresa cuenta con alguna herramienta o forma de trabajo para la gestion de incidencias.</b></p>
+                                        <legend class="h5"></legend>
+                                    
+                                        <!-- Pregunta 5 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 5. ¿Utilizas alguna herramienta para la gestion de incidentes (registro, escalamiento, reporte)?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="herramienta">Ninguna
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="herramienta">Registro manual / Excel
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="herramienta">Software especializado
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pregunta 6 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 6. ¿Cuántos incidentes atiendes mensualmente (en promedio)?</label>
+                                            <div class="form-group">
+                                                <div class="col-lg-6">
+                                                    <label class="control-label pull-left">Número de Incidentes mensuales atendidos:</label>
+                                                </div>
+                                                <div class="col-md-8 inputContainer inline">
+                                                    <input class="form-control" name="numero_incidentes" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM03. Modelos de clasificación/priorización</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Esta serie de preguntas determina si existe un criterio para el registro y atencion de incidentes.</b></p>
+                                        <legend class="h5"></legend>
+
+                                        <!-- Pregunta 7 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 7. ¿Cuentas con algún modelo o esquema para clasificar los incidentes y priorizarlos?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="modelo">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="modelo">No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <!-- Pregunta 8 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 8. El modelo o esquema considera:</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="modelo_considera">Clasificacion : multiples niveles / categorias 
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="modelo_considera">Priorizacion: Nivel de riesgo o criticidad
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="modelo_considera">Priorizacion: Tiempo maximo de resolucion
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="modelo_considera">Priorizacion: Nivel de impacto (perdidas)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM04. Detalle de registro de incidente</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Para determinar cuántos de tus servicios cuentan con los campos que indicaste anteriormente en sus SLA.</b></p>
+                                        <legend class="h5"></legend>
+
+                                        <!-- Pregunta 9 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 9. De los siguientes campos, ¿cuáles te permite especificar la herramienta que utilizas?:</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">Identificador Unico de Incidente
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">Cliente (quien reporto el incidente)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">Agente de Mesa de servicio (quien atiende o registra el incidente)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">Tipo de incidente (clasificacion)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">
+                                                    Prioridad (impacto-urgencia/criticidad)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">
+                                                    Fecha de registro de incidente
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">
+                                                    Estado del incidente
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">
+                                                    Breve descripcion
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">
+                                                    Notas adicionales de trabajo (como se resuelve, explicacion del estado actual, etc.)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="registro_campos">
+                                                    Fecha de cierre / resolucion
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        </div></div>
+                                        <br>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM05. Reportes</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>La importancia de estas preguntas recae en la determinación de los indicadores mas importantes que deberian contener los reportes de gestion de incidentes.</b></p>
+                                        <legend class="h5"></legend>
+
+                                        <!-- Pregunta 10 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 10. ¿Cuáles de los siguientes campos poseen los reportes que generas?</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">Numero de incidentes
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">Proporcion de incidentes por estado
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">Tiempo promedio de resolucion de incidentes (por prioridad)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">Incidentes resueltos solamente por la Mesa de Servicio
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">
+                                                    Proporcion de incidentes registrado y atendidos (por agente)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">
+                                                    Proporcion de incidentes resueltos vs no resueltos
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">
+                                                    Numero de incidentes mayores
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="reporte_campos">
+                                                    Cliente(s) con mayor cantidad de incidentes registrados
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM06. Periodicidad de generación y revisión de reportes</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Mediante esta pregunta se logra determinar si la periodicidad de revision es adecuada.</b></p>
+                                        <legend class="h5"></legend>
+                                    
+                                        <!-- Pregunta 11 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 11. ¿Con qué frecuencia revisas los incidentes?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="frecuencia">
+                                                    Nunca
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="frecuencia">Diariamente
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="frecuencia">Semanalmente
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="frecuencia">Quincenalmente
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="frecuencia">Mensualmente
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="frecuencia">
+                                                    Otro (mayor a 1 mes)
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>IM07. Responsable de Gestión de Incidentes y Mesa de Servicios</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Mediante estas preguntas se determina si existe un responsable adecuado para la gestión de incidentes y del equipo de Mesa de Servicio.</b></p>
+                                        <legend class="h5"></legend>
+                                    
+                                        <!-- Pregunta 12 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 12. ¿Quién adeministra la documentación de los servicios?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="responsable">
+                                                    Nadie
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="responsable">
+                                                    Cada responsable técnico elabora su propia documentación
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="responsable">
+                                                    El jefe/gerente recopila toda la documentación
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pregunta 13 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 13. ¿El responsable convoca a reuniones para la revisión de incidentes?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="reuniones">
+                                                    Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="reuniones">
+                                                    A veces
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="reuniones">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pregunta 14 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 14. ¿El responsable mantiene actualizada esta información en algún tipo de repositorio (físico o digital)?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="actualizada">
+                                                    Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="actualizada">
+                                                    A veces
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="actualizada">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div></div>
+                                    
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-primary">Siguiente Pregunta <i class="glyphicon glyphicon-chevron-right"></i></button>
+                                        <button type="submit" class="btn btn-success">Finalizar <i class="glyphicon glyphicon-ok"></i></button>
+                                        <a class="active" href="/main"><button type="button" class="btn btn-default btn-danger">Terminar Evaluación <i class="glyphicon glyphicon-remove"></i></button></a>
+                                    </div>
+                                        
+                                    </form>
+                                </div>
+                                
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    @footer()
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="/assets/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Validator -->
+    <script src="/assets/bvalidator/js/bootstrapValidator.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/assets/js/sb-admin-2.js"></script>
+
+    <!-- Bootstrap Validator js -->
+    <script>
+        $(document).ready(function() {
+    $('#gcs').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            existe_im: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            formatos: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            documentados: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            almacenados: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            herramienta: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            numero_incidentes: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            modelo: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            modelo_considera: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            registro_campos: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            reporte_campos: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            frecuencia: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            responsable: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            reuniones: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            actualizada: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            }
+        }
+        });
+    });
+    </script>
+
+
+</body>
+
+</html>

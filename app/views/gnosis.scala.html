@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heroshi</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/assets/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+       @navigation()
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Enciclopedia ITIL para Pymes</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <font size="4"><i class="glyphicon glyphicon-info-sign" title="Información"></i><b> Indice de temas</b></font>
+                        </div>
+                        <div class="panel-body">
+                            <ol><b>
+                                <li><a href="#1">ITIL</a></li>
+                                    <ul>
+                                        <li><a href="#1.1">Definición</a></li>
+                                        <li><a href="#1.2">Historia</a></li>
+                                    </ul>
+                                <li><a href="#2">Procesos de ITIL</a></li>
+                                    <ul>
+                                        <li><a href="#2.1">2.1 Estrategia del Servicio</a></li>
+                                            <ul>
+                                                <li><a href="#2.1.1">Gestión de la Cartera de Servicios</a></li>
+                                                <li><a href="#2.1.2">Gestión de la Demanda</a></li>
+                                                <li><a href="#2.1.3">Gestión Financiera</a></li>
+                                            </ul>
+                                        <li><a href="#2.2">2.2 Diseño del Servicio</a></li>
+                                            <ul>
+                                                <li><a href="#2.2.1">Gestión del Nivel de Servicio</a></li>
+                                                <li><a href="#2.2.2">Gestión del Catálogo de Servicios</a></li>
+                                                <li><a href="#2.2.3">Gestión de Proveedores</a></li>
+                                                <li><a href="#2.2.4">Gestión de la Capacidad</a></li>
+                                                <li><a href="#2.2.5">Gestión de la Disponibilidad</a></li>
+                                                <li><a href="#2.2.6">Gestión de la Continuidad del Servicio de TI</a></li>
+                                                <li><a href="#2.2.7">Gestión de la Seguridad de la Información</a></li>
+                                            </ul>
+                                        <li><a href="#2.3">2.3 Transición del Servicio</a></li>
+                                            <ul>
+                                                <li><a href="#2.3.1">Gestión del Conocimiento</a></li>
+                                                <li><a href="#2.3.2">Gestión de Activos del Servicio y Gestión de la Configuración</a></li>
+                                                <li><a href="#2.3.3">Gestión de Cambios </a></li>
+                                                <li><a href="#2.3.4">Gestión de Versiones y Despliegue</a></li>
+                                                <li><a href="#2.3.5">Validación del Servicio y Pruebas</a></li>
+                                            </ul>
+                                        <li><a href="#2.4">2.4 Operación del Servicio</a></li>
+                                            <ul>
+                                                <li><a href="#2.4.1">Gestión de Eventos</a></li>
+                                                <li><a href="#2.4.2">Gestión de Incidentes</a></li>
+                                                <li><a href="#2.4.3">Gestión de Problemas</a></li>
+                                                <li><a href="#2.4.4">Gestión de Peticiones</a></li>
+                                                <li><a href="#2.4.5">Gestión de Accesos</a></li>
+                                                <li><a href="#2.4.6">Función: Mesa de Servicios</a></li>
+                                                <li><a href="#2.4.7">Función: Gestión Técnica</a></li>
+                                                <li><a href="#2.4.8">Función: Gestión de Operaciones de TI</a></li>
+                                                <li><a href="#2.4.9">Función: Gestión de Aplicaciones</a></li>
+                                            </ul>
+                                        <li><a href="#2.5">2.5 Mejora Continua del Servicio</a></li>
+                                    </ul>
+                                <li><a href="#3">Glosario de términos comunes</a></li>
+                                <li><a href="#4">Material adicional para Pymes</a></li>
+                            </ol></b>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <a name="1"></a>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <font size="4"><b>1. ITIL</b></font>
+                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="1.1"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Definición
+                                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>ITIL es un Conjunto de Mejores Prácticas para la Gestión de Servicios de TI. ITIL es propiedad de la OGC y consiste en una serie de publicaciones que aconsejan sobre la provisión de Servicios de TI de Calidad, y sobre los Procesos y las instalaciones necesarias para soportarlos.</p>
+                                            <p>En palabras de la misma ITIL: “...ITIL proporciona guías de calidad para la prestación de servicios de TI y los procesos, las funciones y otras competencias necesarios para sustentarlas. El marco de trabajo ITIL se basa en el ciclo de vida de servicio y dicho ciclo consta de cinco etapas (estrategia del servicio, diseño del servicio, transición del servicio, operación del servicio y mejora continua del servicio), cada una de ellas tiene su propia publicación de apoyo. También hay una serie de publicaciones complementarias de ITIL que proporcionan orientación específica para sectores de la industria, tipos de organización, modelos operativos y arquitecturas de tecnología.” </p>
+                                            <p>Ver <a href="http://www.itil.co.uk/">http://www.itil.co.uk/</a> para más información.</p>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="1.2"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Historia
+                                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>La historia de ITIL se remonta a los años 80. El gobierno de Gran Bretaña decidió que el nivel en la calidad de sus servicios de TI no era el que ellos esperaban. La CCTA (Central Computer and Telecommunications Agency, actualmente llamada Office of Government Commerce, OGC) tuvo como misión desarrollar un marco de trabajo que provea un uso eficiente y financieramente responsable de los recursos de TI dentro de lo que era el gobierno Británico y el sector privado. La primera versión de ITIL se llamó GITIM (Government Information Technology Infrastructure Management), el cual compartía muchas similitudes conceptuales con el actual ITIL, con un enfoque hacia el soporte de servicios y la entrega de estos.</p>
+                                            <p>A principios de los 90, muchas compañías grandes adoptaron este framework. Su expansión fue rápida y lo utilizaban organizaciones gubernamentales como no gubernamentales. A medida que era adoptado a nivel mundial, ITIL experimentó una serie de cambios. En el año 2000, Microsoft adoptó ITIL como base para desarrollar su propio framework ITSM, Microsoft Operations Framework (MOF). En el 2001 salió la versión 2 de ITIL. Se redefinió los libros de Soporte al servicio y Entrega de servicios en volúmenes más concisos y de mejor usabilidad (los actuales 5 que reflejan las 5 actuales etapas ITIL). En el 2007 se publicó la tercera versión de ITIL, la cual adoptó un enfoque más de ciclo de vida de la gestión del servicio, con un mayor énfasis en la integración de TI con el negocio.</p>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <a name="2"></a>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <font size="4"><b>2. Procesos de ITIL</b></font>
+                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <p>ITIL se divide en 5 procesos principales, que se pueden ver como fases de un ciclo de vida.</p>
+                            <img class="img-responsive" src="/assets/images/ITIL_Ciclo_de_vida.jpg" alt="" />
+                            <p align="center"><i>Ciclo de Vida de los Procesos ITIL.</i></p>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="2.1"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            2.1 Estrategia del Servicio
+                                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>La fase de Estrategia de Servicio esta relacionada predominantemente con el <b>desarrollo de capacidades</b> para la gestión de servicios, haciendo que éstas prácticas se conviertan en <b>activos estratégicos para la organización</b>.</p>
+                                            <p>El rol clave es detenerse y pensar "por qué" las cosas deben ser hechas, antes de pensar el "cómo".</p>
+                                            <p>Los procesos principales que comprenden esta primera fase son:</p>
+                                            <a name="2.1.1"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de la Cartera de Servicios
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de gestionar la Cartera de Servicios. La Gestión de la Cartera de Servicios considera los Servicios en términos del valor de Negocio que proporcionan.</p>
+                                                    <p>Una Cartera de servicios es el Conjunto de todos los Servicios que son gestionados por un Proveedor de Servicios (en este casu, tu empresa). La Cartera de Servicios se emplea para gestionar el Ciclo de Vida completo de todos los Servicios, e incluye tres Categorías: Canal de Entrada de Servicios (propuestos o en Desarrollo); Catálogo de Servicios (Reales o disponibles para su Despliegue); y Servicios Retirados.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.1.2"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de la Demanda
+                                                    <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Actividades que entienden e influencian la demanda de Servicios de Usuarios y la provisión de Capacidad para cumplir con esas demandas. Una Gestión de Demanda de nivel Estratégico puede incluir un análisis de Modelos de Actividad de Negocio y Perfiles de Usuarios. Un nivel Táctico puede incluir el uso de Cargos Diferenciales para alentar a los Usuarios a utilizar los Servicios TI en horas de baja actividad.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.1.3"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión Financiera
+                                                    <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>La Función y Procesos responsable de gestionar los requerimientos de Presupuesto, Contabilidad y Cargos de un Proveedor de Servicio de TI.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="2.2"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            2.2 Diseño del Servicio<div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>El Diseño del servicio, que sigue a la Estrategia del Servicio en el ciclo de vida, se ocupa del <b>diseño y desarrollo de servicios</b> y sus procesos relacionados.</p>
+                                            <p>No afecta solo a los nuevos servicios, sino también los que han sido modificados.</p>
+                                            <p>Los procesos que se realizan en esta fase son:</p>
+                                            <a name="2.2.1"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión del Nivel de Servicio <i>(SLM: Service Level Management)</i><div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de negociar y asegurar el cumplimiento de los SLAs. SLM es responsable de asegurar que todos los Procesos de Gestión del Servicio de TI, Acuerdos de Nivel Operacional y Contratos de Soporte son adecuados a los Objetivos de Nivel de Servicio. SLM monitoriza y reporta los Niveles de Servicio y mantiene revisiones periódicas con el Cliente.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.2.2"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión del Catálogo de Servicios <i>(SCM: Service Catalog Management)</i>
+                                                    <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>El principal objetivo de la Gestión del Catálogo del Servicio es que el Catalogo de Servicios sea producido y actualizado y que contenga información precisa de todos los servicios operativos y de aquellos que están listos para ser desplegados.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.2.3"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Proveedores<div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso que asegura que los proveedores y los servicios que ellos proveen son gestionados para soportar los servicios TI y las expectativas del negocio.</p>
+                                                    <p>El propósito es obtener una relación costo-beneficio con los proveedores y garantizar que se cumplan los objetivos contenidos en los acuerdos y contratos, conforme a sus términos y condiciones.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.2.4"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de la Capacidad<div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>La Actividad responsable de comprender el Rendimiento y la Capacidad de los Servicios de TI. Los Recursos usado por cada Servicio de TI y el patrón de uso con el paso del tiempo son recogidos, registrados y analizados para ser utilizados en el Plan de Capacidad.</p>
+                                                    <p>El objetivo principal es garantizar que la capacidad es suficiente para las necesidades presentes y futuras del cliente.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.2.5"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de la Disponibilidad<div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de definir, analizar, Planificar, medir y mejorar todos los aspectos relativos a la Disponibilidad de los Servicios TI. La Gestión de la Disponibilidad tiene la responsabilidad de que toda la Infraestructura TI, Procesos, Herramientas, Roles etc. estén de acuerdo con las Metas de Nivel de Servicio para la Disponibilidad.</p>
+                                                    <p>El objetivo principal es garantizar que los niveles de disponibilidad corresponden a los niveles acordados con el cliente.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.2.6"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de la Continuidad del Servicio de TI <i>(ITSCM: IT Service Continuity Management)</i><div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de gestionar los Riesgos que podrían impactar seriamente a los Servicios de TI. Se asegura que el Proveedor de Servicios de TI puede proporcionar siempre los Niveles de Servicio mínimos acordados, reduciendo el Riesgo a un nivel aceptable y Planificando la Recuperación de los Servicios de TI. ITSCM debería diseñarse de tal manera que soporte la Gestión de la Continuidad del Negocio.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.2.7"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de la Seguridad de la Información
+                                                    <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso que asegura la Confidencialidad, Integridad y Disponibilidad de los Activos de una Organización, información, datos y Servicios de TI. La Gestión de la Seguridad de la información forma parte normalmente de la Gestión de la Seguridad de la Organización, la cual tiene un ámbito más amplio que las del Proveedor de Servicio de TI e incluye accesos a edificios, llamadas de teléfonos, etc para toda la Organización.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="2.3"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            2.3 Transición del Servicio
+                                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>La etapa de Transición del Servicio está enfocada en la <b>transición vulnerable entre la fase de diseño y la fase de operación de un servicio</b>.</p>
+                                            <p>Es una fase particularmente crítica, ya que los errores funcionales y técnicos no encontraos en esta fase resultarán en niveles de impacto más significativos para el negocio y/o la infraestructura de TI y usualmente su reparación costará mucho más una vez que el servicio ya se encuentra en operación.<p>
+                                            <p>Los sub-procesos de ésta fase son:</p>
+                                            <a name="2.3.1"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión del Conocimiento (Knowledge Management)
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de recoger, analizar, almacenar y compartir conocimiento e información dentro de una Organización. El propósito principal de la Gestión del Conocimiento es mejorar la Eficiencia reduciendo la necesidad de redescubrir el conocimiento.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.3.2"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Activos del Servicio y Gestión de la Configuración
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>La Gestión de Activos es responsable de dar seguimiento e informar el valor la propiedad de los Activos financieros, en todo el Ciclo de Vida.</p>
+                                                    <p> La Gestión de la Configuración es responsable de mantener información sobre los Elementos de Configuración requeridos para la provisión de un Servicio de TI, incluyendo las Relaciones entre ellos. Esta información se gestiona durante todo el Ciclo de Vida del CI.</p>
+                                                    <p>Ambos procesos están fuertemente relacionados.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.3.3"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Cambios (Change Management)
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable del control del Ciclo de Vida de los Cambios. El objetivo primario de la Gestió de Cambios es permitir la ejecución de los Cambios a realizar, con la mínima afectación a los Servicios de TI.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.3.4"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Versiones y Despliegue
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de la Planificación, Agendado y Control de movimiento de Versiones a Probar y de Entornos Vivos. El Objetivo primario de la Gestión de Versiones es asegurarse de que la integridad del Entorno Vivo esté protegido y que los Componentes correctos son implementados. La Gestión de Versiones es parte del Proceso de Gestión de Implementación y Versión.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.3.5"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Validación del Servicio y Pruebas
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de la Validación y Pruebas de un Servicio de TI nuevo o con Cambios. La Validación y Pruebas del Servicio se asegura de que un Servicio de TI cumple sus Especificaciones de Diseño y satisface las necesidades del Negocio.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="2.4"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            2.4 Operación del Servicio
+                                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Esta fase del ciclo de vida está principalmente enfocada en la gestión del servicio que asegure <b>efectividad y eficiencia en su entrega y soporte (la operación en sí)</b>.</p>
+                                            <p>Una Operación del servicio exitosa requiere de una coordincación de actividades y procesos para entregar y gestionar servicios a los niveles acordados con los usuarios del negocio y los clientes.</p>
+                                            <p>La Operación del servicio es también responsable por la Gestión de la Tecnología que es usada para entregar y dar soporte a los servicios.</p>
+                                            <p>Los principales procesos que se incluyen son:</p>
+                                            <a name="2.4.1"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Eventos
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de la gestión de Eventos a lo largo de su Ciclo de Vida. La gestión de Eventos es una de las principales Actividades de Operaciones de TI.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.2"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Incidentes
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso responsable de la gestión del Ciclo de vida de todos los Incidentes. El objetivo primario de la Gestión de Incidencias es recuperar el Servicio de TI para los Usuarios lo antes posible.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.3"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Problemas
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Es el Proceso responsable de la gestión del Ciclo de Vida de todos los Problemas. El principal Objetivo de la Gestión de Problemas es la prevención de Incidentes, al igual que la reducción del Impacto de aquellos Incidentes que no haya sido posible prevenir.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.4"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Peticiones
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso que gestiona las peticiones de servicio de los usuarios. Pone a disposición un canal a través del cual los usuarios pueden solicitar y recibir servicios, mediante un proceso de aprobación y cualificación.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.5"></a>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Gestión de Accesos
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Proceso que asegura que los usuarios tienen acceso a un servicio, dentro de los permisos que está autorizado en su rol.</p>
+                                                </div>
+                                            </div>
+                                            <p>A diferencia de los demás procesos, la Operación del Servicio también incluye <b>"funciones"</b> que realizan actividades específicas que son necesarias para el correcto desempeño del servicio:</p>
+                                            <a name="2.4.6"></a>
+                                            <div class="panel panel-yellow">
+                                                <div class="panel-heading">
+                                                    Función: Mesa de Servicios
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Función que da soporte a la provisión de los servicios acordados, asegurando la accesibilidad y disponibilidad de la organización de TI y desarrollando varias actividades de soporte.</p>
+                                                    <p>Actúa como punto único de contacto para todos los incidentes de los usuarios, requerimientos y comunicación en general.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.7"></a>
+                                            <div class="panel panel-yellow">
+                                                <div class="panel-heading">
+                                                    Función: Gestión Técnica
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>La meta principal de esta función es planear, implementar y mantener una infraestructura técnica estable que soporte los procesos de negocio de la organización.</p>
+                                                    <p>En muchas organizaciones, esta función también es responsable de la operación diaria de la infraestructura de TI.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.8"></a>
+                                            <div class="panel panel-yellow">
+                                                <div class="panel-heading">
+                                                    Función: Gestión de Operaciones de TI
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Su principal objetivo es efectuar las actividades operativas del día a día de la organización de TI.</p>
+                                                    <p>Dentro de esta función se tienen dos roles: el Control de Operaciones, que se encarga de la ejecución y monitoreo de las operaciones y eventos; y la Gestión de Instalaciones, responsable de la gestión de todos los ambiente físicos de TI.</p>
+                                                </div>
+                                            </div>
+                                            <a name="2.4.9"></a>
+                                            <div class="panel panel-yellow">
+                                                <div class="panel-heading">
+                                                    Función: Gestión de Aplicaciones
+                                                    <div class="btn-group pull-right">
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>El principal objetivo es el desarrollo, mantenimiento y soporte de aplicaciones de calidad que den soporte a los procesos de negocio de la organización.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a name="2.5"></a>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            2.5 Mejora Continua del Servicio
+                                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>La Mejora Continua del Servicio es responsable para la gestión de <b>mejoras al Servicio TI y la Gestión de Procesos</b>. El Desempeño de los proveedores de Servicios TI es medido continuamente y las mejoras son realizadas en los Procesos, Servicios TI e Infraestructura TI para incrementar su Eficiencia y Efectividad, y Efectividad en Costes.</p>
+                                            <div class="panel panel-green">
+                                                <div class="panel-heading">
+                                                    Modelo de Mejora Continua de ITIL
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Este modelo proporciona las bases mediante las cuales se efectuarán mejoras a los procesos de gestion de los servicios de TI.</p>
+                                                    <p>Este modelo se basa en preguntas para cada etapa:</p>
+                                                    <ul>
+                                                        <li><b>¿Cuál es la Visión?</b> Estrategia del Servicio, Portafolio del Servicio.</li>
+                                                        <li><b>¿Dónde estamos ahora?</b> Portafolio del Servicio, Gestión de Nivel de Servicio, Gestión FInanciera de TI, etc..</li>
+                                                        <li><b>¿Dónde queremos estar?</b> Portafolio del Servicio, Servicios de medición y reporte.</li>
+                                                        <li><b>¿Cómo llegar?</b> Proceso de mejora continua y todos los demás procesos ITIL.</li>
+                                                        <li><b>¿Llegamos?</b> Servicios de medición y reporte.</li>
+                                                        <li><b>¿Cómo podemos mantener el impulso?</b> Mejora continua del servicio.</li>
+                                                    </ul>
+                                                    <img class="img-responsive" src="/assets/images/CSI.jpg" alt="" />
+                                                    <p align="center"><i>Modelo de Mejora Continua de Servicios de ITIL.</i></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <a name="3"></a>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <font size="4"><b>3. Glosario de términos comunes</b></font>
+                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Acuerdo de Nivel de Servicio <i>(SLA: Service Level Agreement)</i>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Acuerdo entre un Proveedor de Servicio de TI y un Cliente. El SLA describe el Servicio de TI, documenta los Objetivos de Nivel de Servicio y especifica las responsabilidades del Proveedor de Servicio de TI y del Cliente. Un único SLA puede curbir varios Servicios de TI o varios Clientes.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Catálogo de Servicios
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Una base de datos o un Documento estructurado con información sobre todos los Servicios TI, incluyendo aquellos disponibles para la Implementación. El Catálogo de Servicios es la única parte publicada del  Portafolio de Servicios publicada a Clientes, y se utiliza para soportar la venta y entrega de los Servicios de TI. El Catálogo de servicios incluye puntos de contacto, solicitud y Procesos de petición.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Ciclo de Vida de la Gestión del Servicio
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Aproximación a la Gestión del Servicio de TI que pone énfasis la importancia de la coordinación y el Control a través de las diferentes Funciones, Procesos y Sistemas necesarios para gestionar el Ciclo de Vida total de los Servicios de TI. La aproximación del Ciclo de Vida de la Gestión del Servicio incluye la Estrategia, Diseño, Transición, Operación y Mejora Continua de los Servicios de TI.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Evento
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Un cambio de estado significativo para la cuestión de un Elemento de Configuración o un Servicio de TI. El término Evento también se usa como Alerta o notificación creada por un Servicio de TI, Elemento de Configuración o herramienta de Monitorización. Los Eventos requieren normalmente que que el personal de Operaciones de TI tome acciones, y a menudo conllevan el registro de Incidentes.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Función
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Concepto lógico que hace referencia a las personas y acciones automatizadas que realizan un proceso bien definido, una actividad o una combinación de ambos.</p>
+                                            <p>Las funciones de Ti definen diferentes roles y responsabilidades requeridas para la entrega y soporte de los servicios TI.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Incidente
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Interrupción no planificada de un Servicio de TI o reducción en la Calidad de un Servicio de TI. También lo es el Fallo de un Elemento de Configuración que no ha impactado todavía en el Servicio. Por ejemplo el Fallo de uno de los discos de un “mirror”.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Petición
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Solicitud de información, asesoramiento, cambio estándar o acceso a un servicio por parte de un usuario.</p>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Proveedor de Servicio de TI
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Empresa que brinda servicios de TI. Es un término técnico para referirse a tu empresa (la proveedora de servicios).</p>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <a name="4"></a>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <font size="4"><b>4. Material adicional para Pymes</b></font>
+                            <div class="btn-group pull-right">
+                                                <a href="#" class="btn btn-outline btn-default btn-xs"><i class="glyphicon glyphicon-chevron-up" title="Volver a la lista"></i></a>
+                                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <p>El siguiente material adicional está diseñado a ayudar a las Pymes a complementar su conocimiento de los procesos ITIL y servir de guía a la implementación de los mismos.</p>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Descripción detallada de procesos (para Heroshi)
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>Descripción detallada de los procesos evaluados con la herramienta Heroshi (actividades, entradas, salidas, etc.).</p>
+                                            <ul>
+                                                <li><a href="/assets/docs/Gestion Catalogo de Servicios.xlsx">Gestión del Catálogo de Servicios</a></li>
+                                                <li><a href="/assets/docs/Gestion Nivel de Servicio.xlsx">Gestión de Nivel de Servicio</a></li>
+                                                <li><a href="/assets/docs/Gestion de Incidentes y Mesa de Ayuda.xlsx">Gestión de Incidentes</a></li>
+                                            </ul>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            Otro material
+                                        </div>
+                                        <div class="panel-body">
+                                        <p>Material auxiliar en plantillas excel para calculo de personal de mesas de servicios, un modelo de predicción de proyectos, entre otros.</p>
+                                            <ul>
+                                                <li><a href="http://www.itsmcommunity.org/Resources/tools/">Herramientas adicionales ITSM Community (inglés)</a></li>
+                                            </ul>
+                                        </div>
+                                     </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    @footer()
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="/assets/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/assets/js/sb-admin-2.js"></script>
+    
+</body>
+
+</html>

@@ -52,7 +52,7 @@ public class MetricaGCS extends Model {
   public static Finder<Long,Evaluacion> find = new Finder<Long,Evaluacion>(
     Long.class, Evaluacion.class
   );
-
+  
   //GyS
 public Long getId() {
   return id;
