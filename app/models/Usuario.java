@@ -16,9 +16,6 @@ public class Usuario extends Model {
 
   @OneToMany(cascade = {CascadeType.ALL})
   public List <Evaluacion> evaluaciones;
-
-  @OneToOne(cascade = {CascadeType.ALL})
-  public Aux_last aux_last;
   
   @Column(unique=true)
   @Constraints.Required
@@ -39,10 +36,6 @@ public class Usuario extends Model {
 
   public String tipo_empresa;
 
-  public String tipo_servicio_1;
-
-  public String tipo_servicio_2;
-
   public String email;
   
   public String estado;
@@ -57,7 +50,7 @@ public class Usuario extends Model {
   public static Usuario getUserByUsername(String username){
     Usuario user = find.where().eq("username",username).findUnique();
     return user;
-  }
+  } 
 
   //GyS
 public Long getId() {
@@ -131,22 +124,6 @@ public void setTipo_empresa(String tipo_empresa) {
   this.tipo_empresa = tipo_empresa;
 }
 
-public String getTipo_servicio_1() {
-  return tipo_servicio_1;
-}
-
-public void setTipo_servicio_1(String tipo_servicio_1) {
-  this.tipo_servicio_1 = tipo_servicio_1;
-}
-
-public String getTipo_servicio_2() {
-  return tipo_servicio_2;
-}
-
-public void setTipo_servicio_2(String tipo_servicio_2) {
-  this.tipo_servicio_2 = tipo_servicio_2;
-}
-
 public String getEmail() {
   return email;
 }
@@ -182,8 +159,7 @@ public static void setFind(Finder<Long, Usuario> find) {
 //Constructor
 public Usuario(String username, String password, String nombre,
     String apellido, String dni, String empresa, String ruc,
-    String tipo_empresa, String tipo_servicio_1, String tipo_servicio_2,
-    String email, String estado) {
+    String tipo_empresa, String email, String estado) {
   super();
   this.username = username;
   this.password = password;
@@ -193,8 +169,6 @@ public Usuario(String username, String password, String nombre,
   this.empresa = empresa;
   this.ruc = ruc;
   this.tipo_empresa = tipo_empresa;
-  this.tipo_servicio_1 = tipo_servicio_1;
-  this.tipo_servicio_2 = tipo_servicio_2;
   this.email = email;
   this.estado = estado;
 } 

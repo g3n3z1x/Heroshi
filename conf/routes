@@ -11,17 +11,8 @@ GET		/createuser					controllers.Usuarios.showCreateUser()
 POST	/nuevousuario				controllers.Usuarios.crearUsuario()
 GET		/main						controllers.Usuarios.dashboard()
 GET		/logout						controllers.Usuarios.logout()
-GET		/evaluaciones				controllers.Usuarios.listarEvaluaciones()
-GET		/evaluacion/:evid			controllers.Usuarios.mostrarEvaluacion(evid: Long)
-
-# Mapa de procesos / Enciclopedia
-GET 	/mapa						controllers.Gnosis.mapa()
-GET 	/procesos_itil				controllers.Gnosis.procesosItil()
 
 # Cuestionarios
-GET		/gcs_previo					controllers.Procesos.previoGCS()
-GET		/gns_previo					controllers.Procesos.previoGNS()
-GET		/gin_previo					controllers.Procesos.previoGIN()
 GET		/gcs_q						controllers.Procesos.cuestionarioGCS()
 GET		/gns_q						controllers.Procesos.cuestionarioGNS()
 GET		/gin_q						controllers.Procesos.cuestionarioGIN()
@@ -34,8 +25,6 @@ POST	/gin_e						controllers.Procesos.evaluacionGIN()
 # JsRoutes para Graficas
 GET     /javascriptRoutes     		controllers.Procesos.javascriptRoutes
 GET		/gcs_r						controllers.Procesos.getEvaluacion()
-GET		/graph_progreso				controllers.Procesos.getProgresoEvaluaciones()
-GET		/graph_distribucion			controllers.Procesos.getDistribucionEvaluaciones()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

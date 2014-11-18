@@ -1,4 +1,3 @@
-@(usuario: Usuario)
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,214 +44,59 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">
-                    <i class="glyphicon glyphicon-list-alt"></i>
-                    Cuestionario: Gestión del Catálogo de Servicios</h1>
+                    <h1 class="page-header">Cuestionario: Gestión del Catálogo de Servicios</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="lead"><i class="glyphicon glyphicon-info-sign" title="Información"></i> El principal objetivo de la Gestión del Catálogo del Servicio es que el Catalogo de Servicios sea producido y actualizado y que contenga información precisa de todos los servicios operativos y de aquellos que están listos para ser desplegados. Tu catálogo de servicios es la lista de todos tus servicios a disposición de tus clientes.</p>
-                            <p class="lead">A continuación se realizan una serie de preguntas enfocadas a determinar en que nivel se encuentra tu proceso de Gestión del Catálogo de Servicios. Responde todas las preguntas y cuando estes listo dale click a "Finalizar".</p>
+                            <i class="glyphicon glyphicon-info-sign" title="Información"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus, velit eu consequat dignissim, enim purus pulvinar neque, ut viverra metus dolor sit amet quam. Pellentesque viverra, purus sed ultricies bibendum, dolor libero pretium turpis, a varius eros diam quis arcu. Nam commodo eleifend justo et dapibus. Mauris vitae risus non elit interdum fermentum. Nam lacus purus, tempus sit amet hendrerit quis, laoreet sit amet erat. Fusce vel vehicula risus, eget volutpat lacus. Praesent suscipit condimentum augue sit amet egestas.
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-6">
                                     <form id="gcs" role="form" method="post" action="/gcs_e">
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM01. Nivel de Documentación</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Estas preguntas están enfocadas en determinar los servicios que provees, cómo tus clientes acceden a su información y cuántos servicios tienes documentados.</b></p>
-                                        <legend class="h5"></legend>
-                                    
+                                    </div></div>
                                         <!-- Pregunta 1 -->
                                         <div class="form-group">
-                                            <label>Pregunta 1. Marca los servicios que se ofrecen en tu empresa (para clientes externos)</label>
-                                            <!-- col1 -->
-                                            @if(usuario.getTipo_servicio_1 == "Software de Base y Aplicaciones" || usuario.getTipo_servicio_2 == "Software de Base y Aplicaciones"){
-                                            <legend class="h5"><i>Servicios que provees en rubro: Software de Base</i></legend>
+                                            <label>Pregunta 1. ¿Qué tipo de servicios brinda tu organización?</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Sistemas Operativos
+                                                    <input type="checkbox" value="1" name="tipo_servicio">Software de Base y Aplicaciones
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Aplicaciones de Oficina
+                                                    <input type="checkbox" value="1" name="tipo_servicio">Consultoría y Servicios de TI (Tecnologías de información)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Aplicaciones de desarrollo y reporte
+                                                    <input type="checkbox" value="0" name="tipo_servicio">Otros (no relacionados a software/tecnologías de información)
                                                 </label>
                                             </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Aplicaciones de comunicación y colaboración
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Servidores de aplicaciones
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Herramientas de business intelligence
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">RDBMS/DBMS
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Aplicativos de Gestión
-                                                </label>
-                                            </div>
-                                            <br>
-                                            <!-- col2 -->
-                                            <legend class="h5"><i>Servicios que provees en rubro: Aplicaciones</i></legend>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Enterprise Resource Planning (ERP)/Gestión de negocios
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Customer Relationship Management (CRM)
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">SCM/Logística/MRP/Operaciones
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Seguridad (de aplicaciones)
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Almacenamiento
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Portales
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Comercio Electrónico
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Workflow
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Knowledge Management
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Document Management
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Content Management
-                                                </label>
-                                            </div>
-                                            <br>
-                                            }
-                                            @if(usuario.getTipo_servicio_1 == "Consultoría y Servicios de TI" || usuario.getTipo_servicio_2 == "Consultoría y Servicios de TI"){
-                                            <!-- col3 -->
-                                            <legend class="h5"><i>Servicios que provees en rubro: Consultoría y Servicios de TI</i></legend>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Consultoría y planeamiento TI
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Integración de Sistemas
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Desarrollo de aplicaciones
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Instalación e implementación de software nuevo
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Mantenimiento/soporte/servicio técnico
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Arrendamiento
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Data Center
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Comunicaciones
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Administración
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Seguridad (de servicios)
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Recuperación de desastres/Continuidad de negocio
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Procesamiento
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">Digitalización/documentos
-                                                </label>
-                                            </div>
-                                            <br>
-                                            }
                                         </div>
                                         <br>
-
                                         <!-- Pregunta 2 -->
                                         <div class="form-group">
-                                            <label>Pregunta 2. ¿Cómo pueden tus clientes conocer sobre tus servicios?</label>
+                                            <label>Pregunta 2. ¿Cuántos servicios (tanto internos como externos) brindas en tu organización?</label>
+                                            <div class="form-group">
+                                                <label class="control-label pull-left">Número de Servicios:</label>
+                                                <div class="col-md-3 inputContainer">
+                                                    <input class="form-control inline" name="numero_servicios" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <!-- Pregunta 3 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 3. ¿Cómo pueden tus clientes conocer sobre tus servicios?</label>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="1" name="doc_servicio">Página Web
@@ -275,10 +119,9 @@
                                             </div>
                                         </div>
                                         <br>
-
-                                        <!-- Pregunta 3 -->
+                                        <!-- Pregunta 4 -->
                                         <div class="form-group">
-                                            <label>Pregunta 3. ¿De los servicios antes mencionados, cuántos están descritos en documentos físicos o digitales?</label>
+                                            <label>Pregunta 4. ¿De los servicios antes mencionados, cuántos están descritos en documentos físicos o digitales?</label>
                                             <div class="form-group">
                                                 <label class="control-label pull-left">Número de Servicios:</label>
                                                 <div class="col-md-3 inputContainer">
@@ -286,20 +129,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </div></div>
-                                        <br>
+                                        <br><br>
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM02. Repositorio de Información</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Es importante conocer dónde y cómo mantienes la información de documentación de cada servicio, ésto impacta en la accesibilidad y disponibilidad del recurso.</b></p>
-                                        <legend class="h5"></legend>
-                                    
-                                        <!-- Pregunta 4 -->
+                                    </div></div>
+                                        <!-- Pregunta 5 -->
                                         <div class="form-group">
-                                            <label>Pregunta 4. ¿Cómo almacenas ésta documentación?</label>
+                                            <label>Pregunta 5. ¿Cómo almacenas ésta documentación?</label>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="0" name="tipo_almacen">Ningún lugar
@@ -331,19 +169,14 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        </div></div>
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM03. Accesibilidad</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>La accesibilidad de tu documentación de servicios debería estar disponible a todos los interesados (stakeholders).</b></p>
-                                        <legend class="h5"></legend>
-
-                                        <!-- Pregunta 5 -->
+                                    </div></div>
+                                        <!-- Pregunta 6 -->
                                         <div class="form-group">
-                                            <label>Pregunta 5. ¿Cómo pueden tus clientes revisar esta información?</label>
+                                            <label>Pregunta 6. ¿Cómo pueden tus clientes revisar esta información?</label>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="0" name="clientes_acc">No es accesible para ellos
@@ -365,9 +198,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Pregunta 6 -->
+                                        <!-- Pregunta 7 -->
                                         <div class="form-group">
-                                            <label>Pregunta 6. ¿Cómo puede el personal técnico de tu empresa (desarrolladores, personal de soporte técnico, etc.) revisar esta información si tiene alguna duda?</label>
+                                            <label>Pregunta 7. ¿Cómo puede el personal técnico de tu empresa (desarrolladores, personal de soporte técnico, etc.) revisar esta información si tiene alguna duda?</label>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="0" name="tec_acc">No es accesible para ellos
@@ -389,9 +222,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Pregunta 7 -->
+                                        <!-- Pregunta 8 -->
                                         <div class="form-group">
-                                            <label>Pregunta 7. ¿Cómo puede el personal administrativo de tu empresa (secretaria, gerente, supervisor, etc.) revisar esta información si tiene alguna duda?</label>
+                                            <label>Pregunta 8. ¿Cómo puede el personal administrativo de tu empresa (secretaria, gerente, supervisor, etc.) revisar esta información si tiene alguna duda?</label>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="0" name="adm_acc">No es accesible para ellos
@@ -413,19 +246,14 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        </div></div>
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM04. Detalle de la documentación (mejor documentado)</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Para determinar con que campos cumple tu servicio mejor documentado.</b></p>
-                                        <legend class="h5"></legend>
-
-                                        <!-- Pregunta 8 -->
+                                    </div></div>
+                                        <!-- Pregunta 9 -->
                                         <div class="form-group">
-                                            <label>Pregunta 8. En base al servicio con la documentación más completa (a tu criterio), ¿cuáles de los siguientes campos contempla?</label>
+                                            <label>Pregunta 9. En base al servicio con la documentación más completa (a tu criterio), ¿cuáles de los siguientes campos contempla?</label>
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="1" name="doc_completo">Identificador único
@@ -467,19 +295,14 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        </div></div>
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM05. Detalle de la documentación (todos)</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Para determinar cuántos de tus servicios cuentan con los campos que indicaste anteriormente.</b></p>
-                                        <legend class="h5"></legend>
-
-                                        <!-- Pregunta 9 -->
+                                    </div></div>
+                                        <!-- Pregunta 10 -->
                                         <div class="form-group">
-                                            <label>Pregunta 9. ¿Cuantos de los servicios que cuentan con documentación física o digital cumplen con todos los campos?</label>
+                                            <label>Pregunta 10. ¿Cuantos de los servicios que cuentan con documentación física o digital cumplen con todos los campos?</label>
                                             <div class="form-group">
                                                 <label class="control-label pull-left">Número de Servicios:</label>
                                                 <div class="col-md-3 inputContainer inline">
@@ -487,20 +310,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </div></div>
-                                        <br>
+                                        <br><br>
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM06. Periodicidad de Revisión</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>La importancia de estas preguntas recae en la frecuencia y cantidad de servicios, tanto para correcciones o actualizaciones en la información.</b></p>
-                                        <legend class="h5"></legend>
-
-                                        <!-- Pregunta 10 -->
+                                    </div></div>
+                                        <!-- Pregunta 11 -->
                                         <div class="form-group">
-                                            <label>Pregunta 10. ¿Cada cuanto se realiza una revisión general de la documentación de los servicios?</label>
+                                            <label>Pregunta 11. ¿Cada cuanto se realiza una revisión general de la documentación de los servicios?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="0" name="periodicidad">Nunca
@@ -527,9 +345,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Pregunta 11 -->
+                                        <!-- Pregunta 12 -->
                                         <div class="form-group">
-                                            <label>Pregunta 11. ¿Cuántos servicios son revisados durante esta actividad?</label>
+                                            <label>Pregunta 12. ¿Cuántos servicios son revisados durante esta actividad?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="0" name="num_revisados">Ninguno
@@ -551,19 +369,14 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        </div></div>
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
                                     <div class="panel-heading"><b>SCM07. Responsable del Catálogo de Servicios</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Finalmente, estas preguntas logran determinar si una persona adecuada administra la documentación y si mantiene busnas prácticas de mantenimiento y comunicación.</b></p>
-                                        <legend class="h5"></legend>
-                                    
-                                        <!-- Pregunta 12 -->
+                                    </div></div>
+                                        <!-- Pregunta 13 -->
                                         <div class="form-group">
-                                            <label>Pregunta 12. ¿Quién administra la documentación de los servicios?</label>
+                                            <label>Pregunta 13. ¿Quién administra la documentación de los servicios?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="0" name="adm_doc">Nadie
@@ -580,9 +393,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Pregunta 13 -->
+                                        <!-- Pregunta 14 -->
                                         <div class="form-group">
-                                            <label>Pregunta 13. ¿El responsable convoca a reuniones para la revisión de la documentación?</label>
+                                            <label>Pregunta 14. ¿El responsable convoca a reuniones para la revisión de la documentación?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="100" name="reuniones">Sí
@@ -599,9 +412,9 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Pregunta 14 -->
+                                        <!-- Pregunta 15 -->
                                         <div class="form-group">
-                                            <label>Pregunta 14. ¿El responsable mantiene actualizada esta información en algún tipo de repositorio (físico o digital)?</label>
+                                            <label>Pregunta 15. ¿El responsable mantiene actualizada esta información en algún tipo de repositorio (físico o digital)?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="100" name="actualizado">Sí
@@ -618,13 +431,10 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        </div></div>
-                                    
-                                    <div class="text-center">
+                                        
                                         <button type="button" class="btn btn-primary">Siguiente Pregunta <i class="glyphicon glyphicon-chevron-right"></i></button>
                                         <button type="submit" class="btn btn-success">Finalizar <i class="glyphicon glyphicon-ok"></i></button>
                                         <a class="active" href="/main"><button type="button" class="btn btn-default btn-danger">Terminar Evaluación <i class="glyphicon glyphicon-remove"></i></button></a>
-                                    </div>
                                         
                                     </form>
                                 </div>
@@ -671,6 +481,13 @@
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
+            tipo_servicio: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
             numero_servicios: {
                 validators: {
                     notEmpty: {
@@ -689,10 +506,6 @@
                 validators: {
                     notEmpty: {
                         message: 'Ingrese un valor.'
-                    },
-                    greaterThan: {
-                        value: 0, 
-                        message: 'Valor no válido.'
                     }
                 }
             },
@@ -735,10 +548,6 @@
                 validators: {
                     notEmpty: {
                         message: 'Ingrese un valor.'
-                    },
-                    greaterThan: {
-                        value: 0, 
-                        message: 'Valor no válido.'
                     }
                 }
             },

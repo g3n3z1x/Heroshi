@@ -7,8 +7,6 @@ import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-import java.util.List;
-
 @Entity 
 public class Evaluacion extends Model {
 
@@ -18,12 +16,6 @@ public class Evaluacion extends Model {
 
   @OneToOne(cascade = {CascadeType.ALL})
   public MetricaGCS metricas_gcs;
-
-  @OneToOne(cascade = {CascadeType.ALL})
-  public MetricaGNS metricas_gns;
-
-  @OneToOne(cascade = {CascadeType.ALL})
-  public MetricaGIN metricas_gin;
 
   @ManyToOne
   public Usuario usuario;
@@ -45,12 +37,6 @@ public class Evaluacion extends Model {
     return evaluacion;
   }
 
-  //Busqueda todas las evaluaciones de un usuario
-  public static List<Evaluacion> getEvaluacionAll(Long uid){
-    List<Evaluacion> evlist = find.where().eq("usuario_id",uid).findList();
-    return evlist;
-  }
-
   //GyS
   public Long getId() {
     return id;
@@ -63,18 +49,6 @@ public class Evaluacion extends Model {
   }
   public void setMetricas_gcs(MetricaGCS metricas_gcs) {
     this.metricas_gcs = metricas_gcs;
-  }
-  public MetricaGNS getMetricas_gns() {
-    return metricas_gns;
-  }
-  public void setMetricas_gns(MetricaGNS metricas_gns) {
-    this.metricas_gns = metricas_gns;
-  }
-  public MetricaGIN getMetricas_gin() {
-    return metricas_gin;
-  }
-  public void setMetricas_gin(MetricaGIN metricas_gin) {
-    this.metricas_gin = metricas_gin;
   }
   public Usuario getUsuario() {
     return usuario;
