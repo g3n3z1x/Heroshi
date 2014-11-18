@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/play-java -Dhttp.port=${PORT} -Dplay.modules.evolutions.autoApply=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url=$DATABASE_URL ${java_opts}
+web: target/universal/stage/bin/play-java -Dhttp.port=${PORT} -Dplay.modules.evolutions.autoApply=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url=$DATABASE_URL
