@@ -47,7 +47,7 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">
                     <i class="glyphicon glyphicon-list-alt"></i>
-                    Cuestionario: Gestión del Catálogo de Servicios</h1>
+                    Cuestionario: Gestión del Nivel de Servicio</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -56,19 +56,19 @@
                 <div class="col-lg-9">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="lead"><i class="glyphicon glyphicon-info-sign" title="Información"></i> El principal objetivo de la Gestión del Catálogo del Servicio es que el Catalogo de Servicios sea producido y actualizado y que contenga información precisa de todos los servicios operativos y de aquellos que están listos para ser desplegados. Tu catálogo de servicios es la lista de todos tus servicios a disposición de tus clientes.</p>
-                            <p class="lead">A continuación se realizan una serie de preguntas enfocadas a determinar en que nivel se encuentra tu proceso de Gestión del Catálogo de Servicios. Responde todas las preguntas y cuando estes listo dale click a "Finalizar".</p>
+                            <p class="lead"><i class="glyphicon glyphicon-info-sign" title="Información"></i> El principal objetivo de la Gestión del Nivel de Servicios es buscar un compromiso realista entre las necesidades y expectativas del cliente y los costes de los servicios asociados, de forma que estos sean asumibles tanto por el cliente como por tu empresa. El documento principal en este proceso es el "Acuerdo de Nivel de Servicios" (Service Level Agreement).</p>
+                            <p class="lead">A continuación se realizan una serie de preguntas enfocadas a determinar en que nivel se encuentra tu proceso de Gestión de Nivel de Servicios. Responde todas las preguntas y cuando estes listo dale click a "Finalizar".</p>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <form id="gcs" role="form" method="post" action="/gcs_e">
+                                    <form id="gns" role="form" method="post" action="/gns_e">
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM01. Nivel de Documentación</b>
+                                    <div class="panel-heading"><b>SLM01. Nivel de Documentación</b>
                                     </div>
                                     <div class="panel-body">
-                                        <p><b>Estas preguntas están enfocadas en determinar los servicios que provees, cómo tus clientes acceden a su información y cuántos servicios tienes documentados.</b></p>
+                                        <p><b>Estas preguntas están enfocadas en determinar si tus servicios están cubiertos por algún tipo de documentación que define un nivel esperado por tus cleientes.</b></p>
                                         <legend class="h5"></legend>
                                     
                                         <!-- Pregunta 1 -->
@@ -132,7 +132,7 @@
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="numero_servicios">SCM/Logística/MRP/Operaciones
+                                                    <input type="checkbox" value="1" name="numero_servicios">SLM/Logística/MRP/Operaciones
                                                 </label>
                                             </div>
                                             <div class="checkbox">
@@ -252,25 +252,25 @@
 
                                         <!-- Pregunta 2 -->
                                         <div class="form-group">
-                                            <label>Pregunta 2. ¿Cómo pueden tus clientes conocer sobre tus servicios?</label>
+                                            <label>Pregunta 2. ¿Dónde se encuentran las condiciones de entrega del servicio acordadas con el cliente?</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="doc_servicio">Página Web
+                                                    <input type="checkbox" value="0" name="doc_condiciones">No se especifican
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="doc_servicio">Documentación Física
+                                                    <input type="checkbox" value="25" name="doc_condiciones">Vía Telefónica/Conversación presencial
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="doc_servicio">Documentación Digital
+                                                    <input type="checkbox" value="50" name="doc_condiciones">Contratos
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="0" name="doc_servicio">Via Telefónica/Conversación presencial (vía oral)
+                                                    <input type="checkbox" value="100" name="doc_condiciones">Documento formal de Acuerdo de Nivel de Servicio
                                                 </label>
                                             </div>
                                         </div>
@@ -278,11 +278,11 @@
 
                                         <!-- Pregunta 3 -->
                                         <div class="form-group">
-                                            <label>Pregunta 3. ¿De los servicios antes mencionados, cuántos están descritos en documentos físicos o digitales?</label>
+                                            <label>Pregunta 3. ¿De los servicios antes mencionados, cuántos cuentan con un Acuerdo de Nivel de Servicios (SLA)?</label>
                                             <div class="form-group">
                                                 <label class="control-label pull-left">Número de Servicios:</label>
                                                 <div class="col-md-3 inputContainer">
-                                                    <input class="form-control inline" name="numero_descritos" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                    <input class="form-control inline" name="numero_sla" type="number" data-bv-integer-message="Ingrese un valor entero." />
                                                 </div>
                                             </div>
                                         </div>
@@ -291,7 +291,7 @@
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM02. Repositorio de Información</b>
+                                    <div class="panel-heading"><b>SLM02. Repositorio de Información</b>
                                     </div>
                                     <div class="panel-body">
                                         <p><b>Es importante conocer dónde y cómo mantienes la información de documentación de cada servicio, ésto impacta en la accesibilidad y disponibilidad del recurso.</b></p>
@@ -335,151 +335,79 @@
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM03. Accesibilidad</b>
+                                    <div class="panel-heading"><b>SLM03. Detalle de la documentación SLA (mejor documentado)</b>
                                     </div>
                                     <div class="panel-body">
-                                        <p><b>La accesibilidad de tu documentación de servicios debería estar disponible a todos los interesados (stakeholders).</b></p>
+                                        <p><b>Para determinar con que campos cumple tu servicio mejor documentado respecto a SLAs.</b></p>
                                         <legend class="h5"></legend>
 
                                         <!-- Pregunta 5 -->
                                         <div class="form-group">
-                                            <label>Pregunta 5. ¿Cómo pueden tus clientes revisar esta información?</label>
+                                            <label>Pregunta 5. En base al servicio con el SLA más completo (a tu criterio), ¿cuáles de los siguientes campos contempla?</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="0" name="clientes_acc">No es accesible para ellos
+                                                    <input type="checkbox" value="1" name="doc_completo">Representantes de partes interesadas (clientes y proveedor)
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="clientes_acc">Reuniones presenciales
+                                                    <input type="checkbox" value="1" name="doc_completo">Breve descripción del servicio
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="clientes_acc">Envío por correo electrónico
+                                                    <input type="checkbox" value="1" name="doc_completo">Contactos para la resolución ante algún incidente
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="clientes_acc">Documentación digital disponible en página web
+                                                    <input type="checkbox" value="1" name="doc_completo">Indicadores y/o tiempos de resolución ante algún incidente
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Periodo de aplicabilidad/Periodo de revisión
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Alcance del SLA/Restricciones
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Horarios de operación (Lunes a viernes, 24x7, etc.)
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Responsabilidades
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Penalizaciones/condiciones
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="1" name="doc_completo">Referencias (catálogo de servicios, contratos, etc.)
                                                 </label>
                                             </div>
                                         </div>
+                                        </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SLM04. Detalle de la documentación (todos)</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Para determinar cuántos de tus servicios cuentan con los campos que indicaste anteriormente en sus SLA.</b></p>
+                                        <legend class="h5"></legend>
+
                                         <!-- Pregunta 6 -->
                                         <div class="form-group">
-                                            <label>Pregunta 6. ¿Cómo puede el personal técnico de tu empresa (desarrolladores, personal de soporte técnico, etc.) revisar esta información si tiene alguna duda?</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="0" name="tec_acc">No es accesible para ellos
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="tec_acc">Lo solicitan al jefe/responsable
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="tec_acc">Bitácora con documentación física
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="tec_acc">Documentación digital en el repositorio
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- Pregunta 7 -->
-                                        <div class="form-group">
-                                            <label>Pregunta 7. ¿Cómo puede el personal administrativo de tu empresa (secretaria, gerente, supervisor, etc.) revisar esta información si tiene alguna duda?</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="0" name="adm_acc">No es accesible para ellos
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="adm_acc">Lo solicitan al personal técnico
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="adm_acc">Bitácora con documentación física
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="adm_acc">Documentación digital en el repositorio
-                                                </label>
-                                            </div>
-                                        </div>
-                                        </div></div>
-
-                                    <!-- Titulo sección -->
-                                    <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM04. Detalle de la documentación (mejor documentado)</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Para determinar con que campos cumple tu servicio mejor documentado.</b></p>
-                                        <legend class="h5"></legend>
-
-                                        <!-- Pregunta 8 -->
-                                        <div class="form-group">
-                                            <label>Pregunta 8. En base al servicio con la documentación más completa (a tu criterio), ¿cuáles de los siguientes campos contempla?</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Identificador único
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Breve resumen
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Características y/o funcionalidades
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Responsables (Administrativo y/o Técnico/Soporte)
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Horarios de disponibilidad (Ejm. 24x7) y atención (Ejm. 9:00am - 5:00pm)
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Costo/Precio básico
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Dependencias (relación con otros productos)
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="doc_completo">Referencias (manuales, actas, etc)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        </div></div>
-
-                                    <!-- Titulo sección -->
-                                    <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM05. Detalle de la documentación (todos)</b>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p><b>Para determinar cuántos de tus servicios cuentan con los campos que indicaste anteriormente.</b></p>
-                                        <legend class="h5"></legend>
-
-                                        <!-- Pregunta 9 -->
-                                        <div class="form-group">
-                                            <label>Pregunta 9. ¿Cuantos de los servicios que cuentan con documentación física o digital cumplen con todos los campos?</label>
+                                            <label>Pregunta 6. ¿Cuantos de los SLAs de los servicios que brindas cumplen con todos los campos de la pregunta anterior?</label>
                                             <div class="form-group">
                                                 <label class="control-label pull-left">Número de Servicios:</label>
                                                 <div class="col-md-3 inputContainer inline">
@@ -492,15 +420,15 @@
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM06. Periodicidad de Revisión</b>
+                                    <div class="panel-heading"><b>SLM05. Periodicidad de Revisión</b>
                                     </div>
                                     <div class="panel-body">
                                         <p><b>La importancia de estas preguntas recae en la frecuencia y cantidad de servicios, tanto para correcciones o actualizaciones en la información.</b></p>
                                         <legend class="h5"></legend>
 
-                                        <!-- Pregunta 10 -->
+                                        <!-- Pregunta 7 -->
                                         <div class="form-group">
-                                            <label>Pregunta 10. ¿Cada cuanto se realiza una revisión general de la documentación de los servicios?</label>
+                                            <label>Pregunta 7. ¿Cada cuanto se realiza una revisión general de la documentación de los servicios?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="0" name="periodicidad">Nunca
@@ -508,28 +436,18 @@
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" value="25" name="periodicidad">Rara vez (1 vez al año)
+                                                    <input type="radio" value="50" name="periodicidad">Cada 1 a 2 años
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" value="50" name="periodicidad">Eventualmente (cada 7 a 12 meses)
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="75" name="periodicidad">Ocasionalmente (cada 3 a 6 meses)
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="100" name="periodicidad">Frecuentemente (cada 1 a 2 meses)
+                                                    <input type="radio" value="100" name="periodicidad">Al menos una vez al año
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- Pregunta 11 -->
+                                        <!-- Pregunta 8 -->
                                         <div class="form-group">
-                                            <label>Pregunta 11. ¿Cuántos servicios son revisados durante esta actividad?</label>
+                                            <label>Pregunta 8. ¿Cuántos de los SLAs son revisados durante esta actividad?</label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" value="0" name="num_revisados">Ninguno
@@ -555,70 +473,238 @@
 
                                     <!-- Titulo sección -->
                                     <div class="panel panel-info">
-                                    <div class="panel-heading"><b>SCM07. Responsable del Catálogo de Servicios</b>
+                                    <div class="panel-heading"><b>SLM06. Cumplimiento de condiciones</b>
                                     </div>
                                     <div class="panel-body">
-                                        <p><b>Finalmente, estas preguntas logran determinar si una persona adecuada administra la documentación y si mantiene busnas prácticas de mantenimiento y comunicación.</b></p>
+                                        <p><b>Mediante esta pregunta se logra determinar en qué medida se están cumpliendo las condiciones de servicio establecidas en tus SLAs.</b></p>
                                         <legend class="h5"></legend>
                                     
+                                        <!-- Pregunta 9 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 9. En base a los incidentes reportados de tus servicios, indica ¿Cuántos se han cumplido completamente, parcialmente o no se han cumplido?</label>
+                                            <div class="form-group">
+                                                <div class="col-lg-4">
+                                                    <label class="control-label pull-left">Totalmente:</label>
+                                                </div>
+                                                <div class="col-lg-6 inputContainer">
+                                                    <input class="form-control inline" name="cum_totalmente" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label class="control-label pull-left">Parcialmente:</label>
+                                                </div>
+                                                <div class="col-lg-6 inputContainer">
+                                                    <input class="form-control inline" name="cum_parcialmente" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label class="control-label pull-left">No se han cumplido:</label>
+                                                </div>
+                                                <div class="col-lg-6 inputContainer">
+                                                    <input class="form-control inline" name="cum_no" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SLM07. Evaluación por Reportes/Información</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Mediante esta pregunta se determina si se estan generando reportes o informacion relevante para la evaluacion del servicio por parte del cliente.</b></p>
+                                        <legend class="h5"></legend>
+                                    
+                                        <!-- Pregunta 10 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 10. ¿Se está informando y confirmando de alguna manera el estado del servicio brindado?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="informando_estado">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="informando_estado">No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pregunta 11 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 11. ¿Cuántos servicios o proyectos en curso tienes?</label>
+                                            <div class="form-group">
+                                                <div class="col-lg-2">
+                                                    <label class="control-label pull-left">Número:</label>
+                                                </div>
+                                                <div class="col-md-6 inputContainer">
+                                                    <input class="form-control inline" name="num_proy" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                        </div><br>
+
                                         <!-- Pregunta 12 -->
                                         <div class="form-group">
-                                            <label>Pregunta 12. ¿Quién administra la documentación de los servicios?</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="0" name="adm_doc">Nadie
-                                                </label>
+                                            <label>Pregunta 12. ¿Cómo se está informando (marcar si aplica) y a cuántos se les está informando, según el tipo (servicios inmediatos: instalaciones; servicios continuos: soporte técnico; proyectos: desarrollo de aplicaciones)?</label>
+                                            <div class="form-group">
+                                                <div class="col-lg-8">
+                                                    <label class="control-label pull-left">Servicios inmediatos: actas de conformidad o entrega de servicios</label>
+                                                </div>
+                                                <div class="col-md-12 inputContainer">
+                                                    <input class="form-control inline" name="num_ser_inm" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="50" name="adm_doc">Cada responsable técnico elabora su propia documentación
-                                                </label>
+                                            <div class="form-group">
+                                                <div class="col-lg-8">
+                                                    <label class="control-label pull-left">Entregables de proyectos: actas de reunión, plan de pruebas, etc.</label>
+                                                </div>
+                                                <div class="col-md-12 inputContainer">
+                                                    <input class="form-control inline" name="num_ser_ent" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="100" name="adm_doc">El jefe/gerente recopila toda la documentación
+                                            <div class="form-group">
+                                                <div class="col-lg-8">
+                                                    <label class="control-label pull-left">Servicios continuos: Reportes de rendimiento, incidentes o cambios
                                                 </label>
+                                                </div>
+                                                <div class="col-md-12 inputContainer">
+                                                    <input class="form-control inline" name="num_ser_con" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-8">
+                                                    <label class="control-label pull-left">Solo via telefonica o correo electronico simple (cualquier tipo)
+                                                </label>
+                                                </div>
+                                                <div class="col-md-12 inputContainer">
+                                                    <input class="form-control inline" name="num_ser_tel" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
                                             </div>
                                         </div>
+
+                                    </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SLM08. Gestión de requisitos de nivel de servicios (SLR)</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Mediante esta pregunta se determina como se estan identificando o gestionando los nuevos requisitos de nivel de servicio por parte de los clientes    
+                                        .</b></p>
+                                        <legend class="h5"></legend>
+                                    
                                         <!-- Pregunta 13 -->
                                         <div class="form-group">
-                                            <label>Pregunta 13. ¿El responsable convoca a reuniones para la revisión de la documentación?</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="100" name="reuniones">Sí
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="50" name="reuniones">A veces
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="1" name="reuniones">No
-                                                </label>
+                                            <label>Pregunta 13. ¿En cuantos servicios o proyectos (al momento de renovar el contrato del servicio o al termino del servicio) el cliente evalúa el nivel de servicio?
+                                            </label>
+                                            <div class="form-group">
+                                                <label class="control-label pull-left">Número:</label>
+                                                <div class="col-md-3 inputContainer">
+                                                    <input class="form-control inline" name="num_evalua" type="number" data-bv-integer-message="Ingrese un valor entero." />
+                                                </div>
                                             </div>
                                         </div>
+
                                         <!-- Pregunta 14 -->
                                         <div class="form-group">
-                                            <label>Pregunta 14. ¿El responsable mantiene actualizada esta información en algún tipo de repositorio (físico o digital)?</label>
+                                            <label>Pregunta 14. ¿Se está identificando nuevos requisitos en el nivel de servicio en base a las opiniones y comentarios de clientes?</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" value="100" name="actualizado">Sí
+                                                    <input type="radio" value="1" name="nuevos_requisitos">Sí
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" value="50" name="actualizado">A veces
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" value="1" name="actualizado">No
+                                                    <input type="radio" value="2" name="nuevos_requisitos">No
                                                 </label>
                                             </div>
                                         </div>
-                                        </div></div>
+
+                                        <!-- Pregunta 15 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 15. ¿Se está añadiendo estos requerimientos en nuevos SLAs?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="nuevos_add">Sí
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="2" name="nuevos_add">No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div></div>
+
+                                    <!-- Titulo sección -->
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading"><b>SLM09. Responsable del Nivel de Servicio (SLR)</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p><b>Mediante esta pregunta se determina como se estan identificando o gestionando los nuevos requisitos de nivel de servicio por parte de los clientes    
+                                        .</b></p>
+                                        <legend class="h5"></legend>
+                                                                            
+                                        <!-- Pregunta 16 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 16. ¿Quién administra la documentación de los servicios?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="0" name="resp_doc">Nadie
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="resp_doc">Cada responsable técnico elabora su propia documentación
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="resp_doc">El jefe/gerente recopila toda la documentación
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pregunta 17 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 17. ¿El responsable convoca a reuniones para la revisión de la documentación?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="resp_reu">No
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="resp_reu">A veces
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="resp_reu">Sí
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pregunta 18 -->
+                                        <div class="form-group">
+                                            <label>Pregunta 18. ¿El responsable mantiene actualizada esta información en algún tipo de repositorio (fisico o digital)?</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="1" name="resp_act">No
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="50" name="resp_act">A veces
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="100" name="resp_act">Sí
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div></div>
                                     
                                     <div class="text-center">
                                         <button type="button" class="btn btn-primary">Siguiente Pregunta <i class="glyphicon glyphicon-chevron-right"></i></button>
@@ -664,7 +750,7 @@
     <!-- Bootstrap Validator js -->
     <script>
         $(document).ready(function() {
-    $('#gcs').bootstrapValidator({
+    $('#gns').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
@@ -674,18 +760,18 @@
             numero_servicios: {
                 validators: {
                     notEmpty: {
-                        message: 'Ingrese un valor.'
+                        message: 'Seleccione al menos 1 opción.'
                     }
                 }
             },
-            doc_servicio: {
+            doc_condiciones: {
                 validators: {
                     notEmpty: {
                         message: 'Elija una opción.'
                     }
                 }
             },
-            numero_descritos: {
+            numero_sla: {
                 validators: {
                     notEmpty: {
                         message: 'Ingrese un valor.'
@@ -697,27 +783,6 @@
                 }
             },
             tipo_almacen: {
-                validators: {
-                    notEmpty: {
-                        message: 'Elija una opción.'
-                    }
-                }
-            },
-            clientes_acc: {
-                validators: {
-                    notEmpty: {
-                        message: 'Elija una opción.'
-                    }
-                }
-            },
-            tec_acc: {
-                validators: {
-                    notEmpty: {
-                        message: 'Elija una opción.'
-                    }
-                }
-            },
-            adm_acc: {
                 validators: {
                     notEmpty: {
                         message: 'Elija una opción.'
@@ -756,21 +821,141 @@
                     }
                 }
             },
-            adm_doc: {
+            cum_totalmente: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            cum_parcialmente: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            cum_no: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            informando_estado: {
                 validators: {
                     notEmpty: {
                         message: 'Elija una opción.'
                     }
                 }
             },
-            reuniones: {
+            num_proy: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            num_ser_inm: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            num_ser_ent: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            num_ser_con: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            num_ser_tel: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            num_evalua: {
+                validators: {
+                    notEmpty: {
+                        message: 'Ingrese un valor.'
+                    },
+                    greaterThan: {
+                        value: 0, 
+                        message: 'Valor no válido.'
+                    }
+                }
+            },
+            nuevos_requisitos: {
                 validators: {
                     notEmpty: {
                         message: 'Elija una opción.'
                     }
                 }
             },
-            actualizado: {
+            nuevos_add: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            resp_doc: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            resp_reu: {
+                validators: {
+                    notEmpty: {
+                        message: 'Elija una opción.'
+                    }
+                }
+            },
+            resp_act: {
                 validators: {
                     notEmpty: {
                         message: 'Elija una opción.'
